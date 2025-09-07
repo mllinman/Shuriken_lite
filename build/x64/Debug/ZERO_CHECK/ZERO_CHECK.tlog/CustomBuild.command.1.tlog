@@ -1,0 +1,10 @@
+^C:\USERS\MLLIN\ONEDRIVE\DOCUMENTS\GITHUB\SHURIKEN_LITE\BUILD\CMAKEFILES\07C4DE04E6FEC5862D57DCB21894D943\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite -BC:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CppBuilderApp.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

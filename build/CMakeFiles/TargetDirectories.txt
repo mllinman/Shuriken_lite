@@ -1,0 +1,5 @@
+C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/CppBuilderApp.dir
+C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/PACKAGE.dir
+C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/INSTALL.dir
+C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/ZERO_CHECK.dir

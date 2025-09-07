@@ -7,8 +7,14 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
+# Explicitly set the UI search path for AutoUic
+set(CMAKE_AUTOUIC_SEARCH_PATH "ui")
+
+# Add ui directory to include directories
+include_directories(${CMAKE_SOURCE_DIR}/ui)
+
 # Find all required Qt6 components
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Json)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
 
 
 add_executable(CppBuilderApp
@@ -20,12 +26,14 @@ add_executable(CppBuilderApp
     src/Builder.cpp
     src/Builder.h
     src/Uninstaller.cpp
-    ui/MainWindow.ui
 )
+
+# Explicitly associate the .ui file with the target
+target_sources(CppBuilderApp PRIVATE ui/MainWindow.ui)
 
 
 # Link all required Qt6 components
-target_link_libraries(CppBuilderApp PRIVATE Qt6::Core Qt6::Gui Qt6::Widgets Qt6::Json)
+target_link_libraries(CppBuilderApp PRIVATE Qt6::Core Qt6::Gui Qt6::Widgets)
 
 # --- Installer via CPack ---
 include(InstallRequiredSystemLibraries)

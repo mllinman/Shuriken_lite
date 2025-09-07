@@ -13,6 +13,7 @@
 #include <comdef.h>
 #include <objbase.h>
 
+
 Installer::Installer(QString appName, QString exePath, QString manifestPath)
     : appName(appName), exePath(exePath), manifestPath(manifestPath) {}
 
@@ -22,61 +23,11 @@ bool Installer::createInstaller(QString outPath, QString &log) {
         log.append("Target executable not found.\n");
         return false;
     }
-    log.append("Creating installer for " + appName + "...\n");
-    // Ensure output directory exists
-    QDir outDir = QFileInfo(outPath).absoluteDir();
-    if (!outDir.exists() && !outDir.mkpath(".")) {
-        log.append("Failed to create output directory.\n");
-        return false;
-    }
-    // Copy the exe to a temp location
-    QString tempDirPath = QDir::temp().filePath(appName + "_installer_temp");
-    QDir tempDir(tempDirPath);
-    if (tempDir.exists()) tempDir.removeRecursively();
-    if (!tempDir.mkpath(".")) {
-        log.append("Failed to create temp directory.\n");
-        return false;
-    }
-    QString tempExePath = tempDir.filePath(QFileInfo(exePath).fileName());
-    if (!QFile::copy(exePath, tempExePath)) {
-        log.append("Failed to copy executable to temp directory.\n");
-        return false;
-    }
-    log.append("Copied executable to temp directory.\n");
-    // Create the installer executable
-    QFile installerExe("resources/InstallerStub.exe");
-    if (!installerExe.exists()) {
-        log.append("Installer stub not found.\n");
-        return false;
-    }
-    if (!QFile::copy("resources/InstallerStub.exe", outPath)) {
-        log.append("Failed to create installer executable.\n");
-        return false;
-    }
-    log.append("Created installer executable at: " + outPath + "\n");
-    // Append data to the installer exe
-    QFile outFile(outPath);
-    if (!outFile.open(QIODevice::Append)) {
-        log.append("Failed to open installer for appending data.\n");
-        return false;
-    }
-    QTextStream outStream(&outFile);
-    outStream << "\n--DATA-START--\n";
-    outStream << "APP_NAME=" << appName << "\n";
-    outStream << "EXE_PATH=" << tempExePath << "\n";
-    outStream << "--DATA-END--\n";
-    outFile.close();
-    log.append("Appended installation data to installer.\n");
-    // Clean up temp directory
-    tempDir.removeRecursively();
-    log.append("Temporary files cleaned up.\n");
-    return true;
-}
 
-// 🔹 Load metadata from manifest (if provided)
-QString publisher = "Shuriken Builder";
-QString version   = "1.0.0";
-QString description = "Application built with Shuriken";
+    // Declare publisher, version, and description
+    QString publisher = "Shuriken Builder";
+    QString version   = "1.0.0";
+    QString description = "Application built with Shuriken";
 
     if (!manifestPath.isEmpty() && QFile::exists(manifestPath)) {
         QFile manifestFile(manifestPath);

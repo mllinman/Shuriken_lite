@@ -13,10 +13,12 @@ public:
     ~MainWindow();
 
 private slots:
-    void onCloneAndBuild();
-    void onProcessOutput();
+        void browseSource();
+        void buildApp();
+        void packageInstaller();
 
 private:
     Ui::MainWindow *ui;
-    QProcess *process;
+        QString builtExe;
+        QProcess *process;
 };
