@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-0448ab97f23744d8bf17.json",
+					"jsonFile" : "directory-.-Debug-f8c713ef079db8ea60f2.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Shuriken_lite::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Shuriken_lite-Debug-f592174efc1cefe8b079.json",
+					"jsonFile" : "target-Shuriken_lite-Debug-62aab3623b9ed4d91009.json",
 					"name" : "Shuriken_lite",
 					"projectIndex" : 0
 				},
