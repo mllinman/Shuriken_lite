@@ -106,7 +106,7 @@ jobs:
         run: |
           & "C:\Program Files (x86)\Windows Kits\10\App Certification Kit\signtool.exe" sign `
             /f windows_cert.pfx `
-            /p "${{ secrets.WINDOWS_CERT_PASS }}" `
+            /p "${{ secrets.WINDOWS_CERT_PASS || '' }}" `
             /tr http://timestamp.digicert.com `
             /td SHA256 /fd SHA256 `
             client\build\ShurikenHub.exe
