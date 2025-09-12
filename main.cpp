@@ -2,6 +2,7 @@
 #include <QFile>
 #include "src/MainWindow.h"
 
+// ...existing code...
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
     // Load dark theme

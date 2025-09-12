@@ -1,12 +1,12 @@
-!define APPNAME "CppBuilderApp"
+!define APPNAME "Shuriken_lite"
 !define VERSION "1.0"
-OutFile "CppBuilderAppInstaller.exe"
+OutFile "Shuriken_liteInstaller.exe"
 InstallDir $PROGRAMFILES\${APPNAME}
 Page directory
 Page instfiles
 
 Section "Install"
   SetOutPath $INSTDIR
-  File /r "build\Release\CppBuilderApp.exe"
-  CreateShortcut "$DESKTOP\CppBuilderApp.lnk" "$INSTDIR\CppBuilderApp.exe"
+  File /r "build\Release\Shuriken_lite.exe"
+  CreateShortcut "$DESKTOP\Shuriken_lite.lnk" "$INSTDIR\Shuriken_lite.exe"
 SectionEnd

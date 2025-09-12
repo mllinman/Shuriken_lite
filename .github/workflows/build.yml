@@ -99,8 +99,13 @@ jobs:
       - name: Decode Certificate
         shell: powershell
         run: |
-          $pfx = [System.Convert]::FromBase64String("${{ secrets.WINDOWS_CERT_PFX }}")
-          Set-Content -Path windows_cert.pfx -Value $pfx -Encoding Byte
+          if ($env:WINDOWS_CERT_PFX -and $env:WINDOWS_CERT_PFX -ne "") {
+            $pfx = [System.Convert]::FromBase64String($env:WINDOWS_CERT_PFX)
+            Set-Content -Path windows_cert.pfx -Value $pfx -Encoding Byte
+          } else {
+            Write-Error "WINDOWS_CERT_PFX secret is not set or is empty."
+            exit 1
+          }
       - name: Sign Application Binary
         shell: powershell
         run: |

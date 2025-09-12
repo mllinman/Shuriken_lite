@@ -31,7 +31,7 @@ runMigrations();
 module.exports = db;
 
 // db.js
-const db = new sqlite3.Database("shuriken_lite.db");
+const dbLite = new sqlite3.Database("shuriken_lite.db");
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -43,13 +43,13 @@ const SECRET = "your_jwt_secret";
 const { pushNotification } = require("./server.js"); // import utility
 
 // inside star route
-db.get(`SELECT ownerEmail, name FROM projects WHERE id=?`, [projectId], (err, project) => {
+dbLite.get(`SELECT ownerEmail, name FROM projects WHERE id=?`, [projectId], (err, project) => {
   if (project) {
     pushNotification(project.ownerEmail, `${email} ⭐ starred your project "${project.name}"`);
   }
 });
 // inside unstar route
-db.get(`SELECT ownerEmail, name FROM projects WHERE id=?`, [projectId], (err, project) => {
+dbLite.get(`SELECT ownerEmail, name FROM projects WHERE id=?`, [projectId], (err, project) => {
   if (project) {
     pushNotification(project.ownerEmail, `${email} ❌ unstarred your project "${project.name}"`);
   }
