@@ -1916,3 +1916,58 @@ void MainWindow::packageInstaller() {
     scriptFile.close();
     ui->logOutput->append("Installer script created: " + installerScript);
 }
+NotificationSocket *notifSocket = new NotificationSocket(globalUserToken, this);
+
+connect(notifSocket, &NotificationSocket::newNotification, this, [=](QString msg) {
+    // Show popup message
+    QMessageBox::information(this, "🔔 New Notification", msg);
+    // Also add to Notifications panel
+    notificationsList->addItem("🔔 " + msg);
+});
+void MainWindow::packageInstaller() {
+    if (builtExe.isEmpty() || !QFile::exists(builtExe)) {
+        QMessageBox::warning(this, "Error", "Built executable not found. Please build the project first.");
+        return;
+    }
+    if (projectRoot.isEmpty() || !QDir(projectRoot).exists()) {
+        QMessageBox::warning(this, "Error", "Project root directory is invalid.");
+        return;
+    }
+    if (ui->installerTargetCombo->currentText().isEmpty()) {
+        QMessageBox::warning(this, "Error", "Please select a target platform for the installer.");
+        return;
+    }
+
+    QString target = ui->installerTargetCombo->currentText();
+    QString appName = QFileInfo(builtExe).baseName();
+    QString version = "1.0.0"; // This could be fetched from a config file or input field
+    QString outInstaller = projectRoot + "/" + appName + "_" + version + "_" + target.replace(" ", "_") + ".exe";
+
+    ui->installerLogOutput->clear();
+    ui->progressBar->setValue(0);
+    ui->statusBar->showMessage("Packaging installer...");
+
+    if (target == "Windows NSIS") {
+        QString nsisScript = projectRoot + "/installers/windows_installer.nsi";
+        QFile scriptFile(nsisScript);
+        if (!scriptFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
+            QMessageBox::warning(this, "Error", "Failed to create NSIS script.");
+            return;
+        }
+
+        QTextStream out(&scriptFile);
+        out << "OutFile \"" << outInstaller << "\"\n";
+        out << "InstallDir \"$PROGRAMFILES\\" << appName << "\"\n";
+        out << "Page directory\n";
+        out << "Page instfiles\n";
+        out << "Section \"Install\"\n";
+        out << "SetOutPath \"$INSTDIR\"\n";
+        out << "File \"" << builtExe << "\"\n";
+        out << "CreateShortCut \"$DESKTOP\\" << appName << ".lnk\" \"$INSTDIR\\" << QFileInfo(builtExe).fileName() << "\"\n";
+        out << "SectionEnd\n";
+        scriptFile.close();
+
+        QProcess *makensis = new QProcess(this);
+        makensis->setProgram("makensis");
+        makensis->setArguments({nsisScript});
+        makensis->start();

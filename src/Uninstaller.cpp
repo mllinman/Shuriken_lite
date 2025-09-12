@@ -12,8 +12,7 @@
 #include <QProcess>
 #include <comdef.h>
 #include <objbase.h>
-#include "Installer.h"
-#include "Uninstaller.h"
+
 
 bool createShortcut(QString location, QString name, QString targetPath) {
     QString folder;

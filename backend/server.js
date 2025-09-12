@@ -39,6 +39,68 @@ if (!fs.existsSync(DB_FILE)) {
     dbInit.close();
   });
 }
+const express = require("express");
+const http = require("http");
+const { Server } = require("socket.io");
+const sqlite3 = require("sqlite3").verbose();
+const jwt = require("jsonwebtoken"); // already in use for auth
+
+const app = express();
+const server = http.createServer(app);
+const io = new Server(server, { cors: { origin: "*" } });
+
+const db = new sqlite3.Database("shuriken_hub.db");
+
+// --- WebSocket Authenticated Connections ---
+io.use((socket, next) => {
+  const token = socket.handshake.auth.token;
+  if (!token) return next(new Error("No token provided"));
+
+  try {
+    const user = jwt.verify(token, process.env.JWT_SECRET || "shuriken_secret");
+    socket.user = user;
+    next();
+  } catch (err) {
+    next(new Error("Invalid token"));
+  }
+});
+
+io.on("connection", (socket) => {
+  console.log(`🔌 User connected: ${socket.user.email}`);
+
+  socket.join(socket.user.email); // join room = email
+
+  socket.on("disconnect", () => {
+    console.log(`❌ User disconnected: ${socket.user.email}`);
+  });
+});
+
+// --- Utility: Push a notification to a user ---
+function pushNotification(userEmail, message) {
+  // Save to DB
+  db.run(
+    `INSERT INTO notifications (userEmail, message) VALUES (?, ?)`,
+    [userEmail, message],
+    function (err) {
+      if (!err) {
+        // Emit to connected clients
+        io.to(userEmail).emit("notification", {
+          id: this.lastID,
+          message,
+          readFlag: 0,
+          createdAt: new Date().toISOString(),
+        });
+      }
+    }
+  );
+}
+
+module.exports = { app, server, db, pushNotification };
+const bodyParser = require("body-parser");
+const jwt = require("jsonwebtoken");
+const SECRET = process.env.JWT_SECRET || "shuriken_secret";
+
+app.use(bodyParser.json());
 const db = new sqlite3.Database(DB_FILE);
 
 function authenticateToken(req, res, next) {

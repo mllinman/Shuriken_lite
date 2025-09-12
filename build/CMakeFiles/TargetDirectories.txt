@@ -1,4 +1,4 @@
-C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/CppBuilderApp.dir
+C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/Shuriken_lite.dir
 C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/package.dir
 C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/package_source.dir
 C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/edit_cache.dir
@@ -6,5 +6,5 @@ C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/rebuild_
 C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/list_install_components.dir
 C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/install.dir
 C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/install/local.dir
-C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/CppBuilderApp_autogen_timestamp_deps.dir
-C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/CppBuilderApp_autogen.dir
+C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/Shuriken_lite_autogen_timestamp_deps.dir
+C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/Shuriken_lite_autogen.dir
