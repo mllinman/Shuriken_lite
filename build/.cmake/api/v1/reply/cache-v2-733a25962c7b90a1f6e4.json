@@ -703,7 +703,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Program Files (x86)/CppBuilderApp"
+			"value" : "C:/Program Files (x86)/Shuriken_lite"
 		},
 		{
 			"name" : "CMAKE_INSTALL_RUNSTATEDIR",
@@ -1371,7 +1371,7 @@
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "The CMake toolchain file"
 				}
 			],
 			"type" : "FILEPATH",
@@ -1424,42 +1424,6 @@
 			],
 			"type" : "BOOL",
 			"value" : "ON"
-		},
-		{
-			"name" : "CppBuilderApp_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build"
-		},
-		{
-			"name" : "CppBuilderApp_IS_TOP_LEVEL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "ON"
-		},
-		{
-			"name" : "CppBuilderApp_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite"
 		},
 		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_Threads",
@@ -6975,7 +6939,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files (x86)/CppBuilderApp"
+			"value" : "C:/Program Files (x86)/Shuriken_lite"
 		}
 	],
 	"kind" : "cache",

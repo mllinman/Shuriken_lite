@@ -108,7 +108,7 @@ CMAKE_INSTALL_MANDIR:PATH=
 CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/CppBuilderApp
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/Shuriken_lite
 
 //Run-time variable data (LOCALSTATEDIR/run)
 CMAKE_INSTALL_RUNSTATEDIR:PATH=
@@ -243,7 +243,7 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=
 // during RELWITHDEBINFO builds.
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
-//No help, variable specified on the command line.
+//The CMake toolchain file
 CMAKE_TOOLCHAIN_FILE:FILEPATH=C:/Qt/6.9.2/msvc2022_64/lib/cmake/Qt6/qt.toolchain.cmake
 
 //If this value is on, makefiles will be generated without the
@@ -257,15 +257,6 @@ CPACK_SOURCE_7Z:BOOL=ON
 
 //Enable to build ZIP source packages
 CPACK_SOURCE_ZIP:BOOL=ON
-
-//Value Computed by CMake
-CppBuilderApp_BINARY_DIR:STATIC=C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build
-
-//Value Computed by CMake
-CppBuilderApp_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-CppBuilderApp_SOURCE_DIR:STATIC=C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite
 
 //Path to a file.
 MSVC_REDIST_DIR:PATH=C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Redist/MSVC/14.44.35112
@@ -1392,5 +1383,5 @@ Vulkan_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Vulkan_LIBRARY
 Vulkan_LIBRARY-ADVANCED:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
-_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/CppBuilderApp
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/Shuriken_lite
 

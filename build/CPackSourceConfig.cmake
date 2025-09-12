@@ -21,7 +21,7 @@ set(CPACK_IGNORE_FILES "/CVS/;/\\.svn/;/\\.bzr/;/\\.hg/;/\\.git/;\\.swp\$;\\.#;/
 set(CPACK_INNOSETUP_ARCHITECTURE "x64")
 set(CPACK_INSTALLED_DIRECTORIES "C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite;/")
 set(CPACK_INSTALL_CMAKE_PROJECTS "")
-set(CPACK_INSTALL_PREFIX "C:/Program Files (x86)/CppBuilderApp")
+set(CPACK_INSTALL_PREFIX "C:/Program Files (x86)/Shuriken_lite")
 set(CPACK_MODULE_PATH "C:/Qt/6.9.2/msvc2022_64/lib/cmake/Qt6/platforms;C:/Qt/6.9.2/msvc2022_64/lib/cmake/Qt6;C:/Qt/6.9.2/msvc2022_64/lib/cmake/Qt6/3rdparty/extra-cmake-modules/find-modules;C:/Qt/6.9.2/msvc2022_64/lib/cmake/Qt6/3rdparty/kwin;C:/Qt/6.9.2/msvc2022_64/lib/cmake/Qt6;C:/Qt/6.9.2/msvc2022_64/lib/cmake/Qt6/3rdparty/extra-cmake-modules/find-modules;C:/Qt/6.9.2/msvc2022_64/lib/cmake/Qt6/3rdparty/kwin")
 set(CPACK_NSIS_DISPLAY_NAME "Shuriken_lite 1.0")
 set(CPACK_NSIS_INSTALLER_ICON_CODE "")
