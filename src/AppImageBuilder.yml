@@ -1,0 +1,14 @@
+version: 1
+AppDir:
+  path: AppDir
+  app_info:
+    id: com.shurikenlite
+    name: ShurikenLite
+    exec: ShurikenLite
+    icon: shuriken
+  files:
+    include:
+      - build/ShurikenLite
+    exclude: []
+AppImage:
+  arch: x86_64

@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS issues (
+CREATE TABLE issues (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     projectId INTEGER NOT NULL,
     creatorEmail TEXT NOT NULL,
@@ -6,11 +6,11 @@ CREATE TABLE IF NOT EXISTS issues (
     body TEXT,
     status TEXT CHECK(status IN ('open','closed')) DEFAULT 'open',
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY(projectId) REFERENCES projects(id),
-    FOREIGN KEY(creatorEmail) REFERENCES users(email)
+    CONSTRAINT FK_Issues_Projects FOREIGN KEY (projectId) REFERENCES projects(id),
+    CONSTRAINT FK_Issues_Users FOREIGN KEY (creatorEmail) REFERENCES users(email)
 );
 
-CREATE TABLE IF NOT EXISTS issue_comments (
+CREATE TABLE issue_comments (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     issueId INTEGER NOT NULL,
     commenterEmail TEXT NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS issue_comments (
     FOREIGN KEY(issueId) REFERENCES issues(id),
     FOREIGN KEY(commenterEmail) REFERENCES users(email)
 );
-CREATE TABLE IF NOT EXISTS migrations (
+CREATE TABLE migrations (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     appliedAt TEXT DEFAULT CURRENT_TIMESTAMP

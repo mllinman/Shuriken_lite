@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS discussions (
+CREATE TABLE discussions (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     projectId INTEGER NOT NULL,
     creatorEmail TEXT NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS discussions (
     FOREIGN KEY(creatorEmail) REFERENCES users(email)
 );
 
-CREATE TABLE IF NOT EXISTS discussion_comments (
+CREATE TABLE discussion_comments (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     discussionId INTEGER NOT NULL,
     commenterEmail TEXT NOT NULL,

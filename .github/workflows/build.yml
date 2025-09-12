@@ -1,23 +1,146 @@
-name: Shuriken Build
-on: [push, pull_request]
+name: Shuriken_lite Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  release:
+    types: [created]
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-
+  backend:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Install Qt + CMake
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install backend dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y qt6-base-dev cmake
-      - name: Build
+          cd backend
+          npm install
+
+      - name: Run migrations
         run: |
-          cmake -S . -B build
-          cmake --build build --config Release
-      - name: Package
+          cd backend
+          node migrate.js
+
+      - name: Archive backend
+        run: tar czf backend.tar.gz backend
+      - uses: actions/upload-artifact@v3
+        with:
+          name: backend
+          path: backend.tar.gz
+
+  client-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: 6.6.0
+      - name: Build Client (Linux)
         run: |
-          cmake --install build --prefix out
+          cd client
+          mkdir build && cd build
+          cmake ..
+          make -j4
+      - uses: actions/upload-artifact@v3
+        with:
+          name: shuriken-linux
+          path: client/build/Shuriken_lite
+      - name: Install AppImageTool
+        run: |
+          wget -q https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage -O /usr/local/bin/appimagetool
+          chmod +x /usr/local/bin/appimagetool
+      - name: Package AppImage
+        run: |
+          cd client
+          mkdir -p AppDir/usr/bin
+          cp build/Shuriken_lite AppDir/usr/bin/
+          cp Shuriken_lite.desktop AppDir/
+          cp icons/shuriken.png AppDir/
+          appimagetool AppDir Shuriken_lite-x86_64.AppImage
+      - uses: actions/upload-artifact@v3
+        with:
+          name: shuriken-linux-appimage
+          path: client/Shuriken_lite-x86_64.AppImage
+
+  client-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: 6.6.0
+      - name: Build Client
+        run: |
+          cd client
+          mkdir build
+          cd build
+          cmake .. -G "NMake Makefiles"
+          nmake
+      - name: Install Inno Setup
+        run: choco install innosetup -y
+      - name: Build Installer
+        run: |
+          cd client
+          "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer.iss
+          - uses: actions/upload-artifact@v3
+            with:
+              name: shuriken-windows-installer
+              path: client/dist/Shuriken_liteInstaller.exe
+      - name: Decode Certificate
+        shell: powershell
+        run: |
+          $pfx = [System.Convert]::FromBase64String("${{ secrets.WINDOWS_CERT_PFX }}")
+          Set-Content -Path windows_cert.pfx -Value $pfx -Encoding Byte
+      - name: Sign Application Binary
+        shell: powershell
+        run: |
+          & "C:\Program Files (x86)\Windows Kits\10\App Certification Kit\signtool.exe" sign `
+            /f windows_cert.pfx `
+            /p "${{ secrets.WINDOWS_CERT_PASS }}" `
+            /tr http://timestamp.digicert.com `
+            /td SHA256 /fd SHA256 `
+            client\build\ShurikenHub.exe
+      - name: Sign Installer
+        shell: powershell
+        run: |
+          & "C:\Program Files (x86)\Windows Kits\10\App Certification Kit\signtool.exe" sign `
+            /f windows_cert.pfx `
+            /p "${{ secrets.WINDOWS_CERT_PASS }}" `
+            /tr http://timestamp.digicert.com `
+            /td SHA256 /fd SHA256 `
+            client\dist\Shuriken_liteInstaller.exe
+      - uses: actions/upload-artifact@v3
+        with:
+          name: shuriken-windows-installer
+          path: 
+            client/build/Shuriken_lite.exe
+            client/dist/Shuriken_liteInstaller.exe
+  release:
+    needs: [backend, client-linux, client-windows]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release' && github.event.action == 'created'
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v3
+        with:
+          path: dist
+
+      - name: Publish Release Assets
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist/shuriken-linux-appimage/Shuriken_lite-x86_64.AppImage
+            dist/shuriken-windows-installer/Shuriken_liteInstaller.exe
+            dist/backend/backend.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
