@@ -1,0 +1,10 @@
+# ninja log v6
+38	433	7794083191027177	CppBuilderApp_autogen/timestamp	2f0975ca39868d59
+38	433	7794083191027177	CppBuilderApp_autogen/mocs_compilation.cpp	2f0975ca39868d59
+38	433	7794083191027177	C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CppBuilderApp_autogen/mocs_compilation.cpp	2f0975ca39868d59
+54	1161	7794083575164717	CMakeFiles/CppBuilderApp.dir/src/Builder.cpp.obj	4a588610fba349ac
+38	433	7794083191027177	C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CppBuilderApp_autogen/timestamp	2f0975ca39868d59
+51	1560	7794083575134718	CMakeFiles/CppBuilderApp.dir/src/Installer.cpp.obj	3d560c1890800df1
+56	1618	7794083575194709	CMakeFiles/CppBuilderApp.dir/src/Uninstaller.cpp.obj	80a31899183246d7
+44	1684	7794083575074709	CMakeFiles/CppBuilderApp.dir/main.cpp.obj	34debb9e4ae3c6db
+41	1730	7794083575034649	CMakeFiles/CppBuilderApp.dir/CppBuilderApp_autogen/mocs_compilation.cpp.obj	4dd91c626c6340ee

@@ -1,0 +1,14 @@
+{
+  "name": "Clang-Tidy",
+  "command": "clang-tidy.exe",
+  "args": ["--checks=*"],
+  "description": "C++ static analysis"
+}
+{
+  "name": "Clang-Tidy",
+  "repo": "https://github.com/llvm/clang-tools-extra",
+  "command": "clang-tidy",
+  "args": ["--checks=*"],
+  "description": "Static analyzer"
+}
+

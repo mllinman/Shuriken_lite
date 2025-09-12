@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS notifications (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userEmail TEXT NOT NULL,
+    message TEXT NOT NULL,
+    readFlag INTEGER DEFAULT 0,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(userEmail) REFERENCES users(email)
+);

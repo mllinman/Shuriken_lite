@@ -3,6 +3,8 @@
 #include <QFileInfoList>
 #include <QProcess>
 #include <QTextStream>
+#include <QDirIterator>
+#include <QFileInfo>
 
 Builder::Builder(QString llvmPath) : llvmPath(llvmPath) {}
 

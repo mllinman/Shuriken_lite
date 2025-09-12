@@ -11,7 +11,7 @@
 
 
 set(CPACK_BUILD_SOURCE_DIRS "C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite;C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build")
-set(CPACK_CMAKE_GENERATOR "Visual Studio 17 2022")
+set(CPACK_CMAKE_GENERATOR "Ninja")
 set(CPACK_COMPONENT_UNSPECIFIED_HIDDEN "TRUE")
 set(CPACK_COMPONENT_UNSPECIFIED_REQUIRED "TRUE")
 set(CPACK_DEFAULT_PACKAGE_DESCRIPTION_FILE "C:/Program Files/CMake/share/cmake-4.1/Templates/CPack.GenericDescription.txt")
@@ -22,7 +22,7 @@ set(CPACK_INNOSETUP_ARCHITECTURE "x64")
 set(CPACK_INSTALLED_DIRECTORIES "C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite;/")
 set(CPACK_INSTALL_CMAKE_PROJECTS "")
 set(CPACK_INSTALL_PREFIX "C:/Program Files (x86)/CppBuilderApp")
-set(CPACK_MODULE_PATH "C:/Qt/6.9.2/msvc2022_64/lib/cmake/Qt6;C:/Qt/6.9.2/msvc2022_64/lib/cmake/Qt6/3rdparty/extra-cmake-modules/find-modules;C:/Qt/6.9.2/msvc2022_64/lib/cmake/Qt6/3rdparty/kwin")
+set(CPACK_MODULE_PATH "C:/Qt/6.9.2/msvc2022_64/lib/cmake/Qt6/platforms;C:/Qt/6.9.2/msvc2022_64/lib/cmake/Qt6;C:/Qt/6.9.2/msvc2022_64/lib/cmake/Qt6/3rdparty/extra-cmake-modules/find-modules;C:/Qt/6.9.2/msvc2022_64/lib/cmake/Qt6/3rdparty/kwin")
 set(CPACK_NSIS_DISPLAY_NAME "CppBuilderApp 1.0")
 set(CPACK_NSIS_INSTALLER_ICON_CODE "")
 set(CPACK_NSIS_INSTALLER_MUI_ICON_CODE "")

@@ -1,5 +1,10 @@
 C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/CppBuilderApp.dir
-C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/PACKAGE.dir
-C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/INSTALL.dir
-C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/package.dir
+C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/package_source.dir
+C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/edit_cache.dir
+C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/rebuild_cache.dir
+C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/list_install_components.dir
+C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/install.dir
+C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/install/local.dir
+C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/CppBuilderApp_autogen_timestamp_deps.dir
+C:/Users/mllin/OneDrive/Documents/GitHub/Shuriken_lite/build/CMakeFiles/CppBuilderApp_autogen.dir

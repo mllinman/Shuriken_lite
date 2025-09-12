@@ -13,8 +13,9 @@ set(CMAKE_AUTOUIC_SEARCH_PATH "ui")
 # Add ui directory to include directories
 include_directories(${CMAKE_SOURCE_DIR}/ui)
 
+
 # Find all required Qt6 components
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets WebSockets)
 
 
 add_executable(CppBuilderApp
@@ -32,8 +33,9 @@ add_executable(CppBuilderApp
 target_sources(CppBuilderApp PRIVATE ui/MainWindow.ui)
 
 
+
 # Link all required Qt6 components
-target_link_libraries(CppBuilderApp PRIVATE Qt6::Core Qt6::Gui Qt6::Widgets)
+target_link_libraries(CppBuilderApp PRIVATE Qt6::Core Qt6::Gui Qt6::Widgets Qt6::WebSockets)
 
 # --- Installer via CPack ---
 include(InstallRequiredSystemLibraries)

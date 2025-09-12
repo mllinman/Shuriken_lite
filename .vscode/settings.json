@@ -62,6 +62,23 @@
   "files.associations": {
     ".fantomasignore": "ignore",
     "qprocess": "cpp",
-    "qtextstream": "cpp"
+    "qtextstream": "cpp",
+    "qcoreapplication": "cpp",
+    "qfiledialog": "cpp",
+    "qmessagebox": "cpp",
+    "qfile": "cpp",
+    "qregularexpression": "cpp",
+    "qfont": "cpp",
+    "qpainter": "cpp"
+  }
+}
+{
+  "username": "michael",
+  "theme": "dark",
+  "font": "Consolas",
+  "keybindings": {
+    "build": "Ctrl+B",
+    "run": "F5",
+    "debug": "F9"
   }
 }
