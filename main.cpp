@@ -6,7 +6,7 @@
 int main(int argc, char *argv[]) {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
-    QApplication::setApplicationName("Shuriken_lite");
+        // QApplication::setApplicationName("Shuriken_lite");
     QApplication::setOrganizationName("BulletDrop_Studio");
     QApplication::setApplicationVersion("1.0.0");
     // Load dark theme
