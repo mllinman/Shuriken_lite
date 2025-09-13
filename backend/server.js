@@ -39,17 +39,11 @@ if (!fs.existsSync(DB_FILE)) {
     dbInit.close();
   });
 }
-const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
-const sqlite3 = require("sqlite3").verbose();
-const jwt = require("jsonwebtoken"); // already in use for auth
 
-const app = express();
 const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: "*" } });
-
-const db = new sqlite3.Database("shuriken_hub.db");
 
 // --- WebSocket Authenticated Connections ---
 io.use((socket, next) => {
@@ -95,14 +89,17 @@ function pushNotification(userEmail, message) {
   );
 }
 
-module.exports = { app, server, db, pushNotification };
-const bodyParser = require("body-parser");
-const jwt = require("jsonwebtoken");
-const SECRET = process.env.JWT_SECRET || "shuriken_secret";
-
 app.use(bodyParser.json());
-const db = new sqlite3.Database(DB_FILE);
 
-function authenticateToken(req, res, next) {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
+module.exports = { app, server, db, pushNotification };
+app.use(bodyParser.urlencoded({ extended: true }));
+const SECRET = "your_jwt_secret";
+
+// Example route to demonstrate pushNotification usage
+app.post("/star", (req, res) => {
+  const { projectId, email } = req.body;
+  // Logic to star the project...
+  // Example: send a notification to the user
+  pushNotification(email, `You starred project ${projectId}`);
+  res.json({ success: true, message: "Project starred and notification sent." });
+});
