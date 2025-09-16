@@ -353,29 +353,29 @@ src/CodeCompleter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shuriken_lite.dir/build.make CMakeFiles/Shuriken_lite.dir/src/CodeCompleter.cpp.s
 .PHONY : src/CodeCompleter.cpp.s
 
-src/CodeEditor.o: src/CodeEditor.cpp.o
-.PHONY : src/CodeEditor.o
+src/CodeEditor_simple.o: src/CodeEditor_simple.cpp.o
+.PHONY : src/CodeEditor_simple.o
 
 # target to build an object file
-src/CodeEditor.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shuriken_lite.dir/build.make CMakeFiles/Shuriken_lite.dir/src/CodeEditor.cpp.o
-.PHONY : src/CodeEditor.cpp.o
+src/CodeEditor_simple.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shuriken_lite.dir/build.make CMakeFiles/Shuriken_lite.dir/src/CodeEditor_simple.cpp.o
+.PHONY : src/CodeEditor_simple.cpp.o
 
-src/CodeEditor.i: src/CodeEditor.cpp.i
-.PHONY : src/CodeEditor.i
+src/CodeEditor_simple.i: src/CodeEditor_simple.cpp.i
+.PHONY : src/CodeEditor_simple.i
 
 # target to preprocess a source file
-src/CodeEditor.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shuriken_lite.dir/build.make CMakeFiles/Shuriken_lite.dir/src/CodeEditor.cpp.i
-.PHONY : src/CodeEditor.cpp.i
+src/CodeEditor_simple.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shuriken_lite.dir/build.make CMakeFiles/Shuriken_lite.dir/src/CodeEditor_simple.cpp.i
+.PHONY : src/CodeEditor_simple.cpp.i
 
-src/CodeEditor.s: src/CodeEditor.cpp.s
-.PHONY : src/CodeEditor.s
+src/CodeEditor_simple.s: src/CodeEditor_simple.cpp.s
+.PHONY : src/CodeEditor_simple.s
 
 # target to generate assembly for a file
-src/CodeEditor.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shuriken_lite.dir/build.make CMakeFiles/Shuriken_lite.dir/src/CodeEditor.cpp.s
-.PHONY : src/CodeEditor.cpp.s
+src/CodeEditor_simple.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shuriken_lite.dir/build.make CMakeFiles/Shuriken_lite.dir/src/CodeEditor_simple.cpp.s
+.PHONY : src/CodeEditor_simple.cpp.s
 
 src/CodeViewer.o: src/CodeViewer.cpp.o
 .PHONY : src/CodeViewer.o
@@ -473,29 +473,29 @@ src/IssueManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shuriken_lite.dir/build.make CMakeFiles/Shuriken_lite.dir/src/IssueManager.cpp.s
 .PHONY : src/IssueManager.cpp.s
 
-src/MainWindow.o: src/MainWindow.cpp.o
-.PHONY : src/MainWindow.o
+src/MainWindow_simple.o: src/MainWindow_simple.cpp.o
+.PHONY : src/MainWindow_simple.o
 
 # target to build an object file
-src/MainWindow.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shuriken_lite.dir/build.make CMakeFiles/Shuriken_lite.dir/src/MainWindow.cpp.o
-.PHONY : src/MainWindow.cpp.o
+src/MainWindow_simple.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shuriken_lite.dir/build.make CMakeFiles/Shuriken_lite.dir/src/MainWindow_simple.cpp.o
+.PHONY : src/MainWindow_simple.cpp.o
 
-src/MainWindow.i: src/MainWindow.cpp.i
-.PHONY : src/MainWindow.i
+src/MainWindow_simple.i: src/MainWindow_simple.cpp.i
+.PHONY : src/MainWindow_simple.i
 
 # target to preprocess a source file
-src/MainWindow.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shuriken_lite.dir/build.make CMakeFiles/Shuriken_lite.dir/src/MainWindow.cpp.i
-.PHONY : src/MainWindow.cpp.i
+src/MainWindow_simple.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shuriken_lite.dir/build.make CMakeFiles/Shuriken_lite.dir/src/MainWindow_simple.cpp.i
+.PHONY : src/MainWindow_simple.cpp.i
 
-src/MainWindow.s: src/MainWindow.cpp.s
-.PHONY : src/MainWindow.s
+src/MainWindow_simple.s: src/MainWindow_simple.cpp.s
+.PHONY : src/MainWindow_simple.s
 
 # target to generate assembly for a file
-src/MainWindow.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shuriken_lite.dir/build.make CMakeFiles/Shuriken_lite.dir/src/MainWindow.cpp.s
-.PHONY : src/MainWindow.cpp.s
+src/MainWindow_simple.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shuriken_lite.dir/build.make CMakeFiles/Shuriken_lite.dir/src/MainWindow_simple.cpp.s
+.PHONY : src/MainWindow_simple.cpp.s
 
 src/NotificationManager.o: src/NotificationManager.cpp.o
 .PHONY : src/NotificationManager.o
@@ -650,9 +650,9 @@ help:
 	@echo "... src/CodeCompleter.o"
 	@echo "... src/CodeCompleter.i"
 	@echo "... src/CodeCompleter.s"
-	@echo "... src/CodeEditor.o"
-	@echo "... src/CodeEditor.i"
-	@echo "... src/CodeEditor.s"
+	@echo "... src/CodeEditor_simple.o"
+	@echo "... src/CodeEditor_simple.i"
+	@echo "... src/CodeEditor_simple.s"
 	@echo "... src/CodeViewer.o"
 	@echo "... src/CodeViewer.i"
 	@echo "... src/CodeViewer.s"
@@ -665,9 +665,9 @@ help:
 	@echo "... src/IssueManager.o"
 	@echo "... src/IssueManager.i"
 	@echo "... src/IssueManager.s"
-	@echo "... src/MainWindow.o"
-	@echo "... src/MainWindow.i"
-	@echo "... src/MainWindow.s"
+	@echo "... src/MainWindow_simple.o"
+	@echo "... src/MainWindow_simple.i"
+	@echo "... src/MainWindow_simple.s"
 	@echo "... src/NotificationManager.o"
 	@echo "... src/NotificationManager.i"
 	@echo "... src/NotificationManager.s"

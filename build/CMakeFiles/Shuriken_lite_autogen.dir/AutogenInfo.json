@@ -262,9 +262,9 @@
 			null
 		],
 		[
-			"/home/runner/work/Shuriken_lite/Shuriken_lite/src/MainWindow.h",
+			"/home/runner/work/Shuriken_lite/Shuriken_lite/src/MainWindow_simple.h",
 			"MU",
-			"UVLADIE3JM/moc_MainWindow.cpp",
+			"UVLADIE3JM/moc_MainWindow_simple.cpp",
 			null
 		],
 		[
@@ -383,7 +383,7 @@
 			null
 		],
 		[
-			"/home/runner/work/Shuriken_lite/Shuriken_lite/src/CodeEditor.cpp",
+			"/home/runner/work/Shuriken_lite/Shuriken_lite/src/CodeEditor_simple.cpp",
 			"MU",
 			null
 		],
@@ -408,7 +408,7 @@
 			null
 		],
 		[
-			"/home/runner/work/Shuriken_lite/Shuriken_lite/src/MainWindow.cpp",
+			"/home/runner/work/Shuriken_lite/Shuriken_lite/src/MainWindow_simple.cpp",
 			"MU",
 			null
 		],

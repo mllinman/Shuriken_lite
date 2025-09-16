@@ -2,6 +2,9 @@
 #include <QPlainTextEdit>
 #include <QFile>
 #include <QTextStream>
+#include <QTextBlock>
+#include <QTextCursor>
+#include <QTextDocument>
 
 CodeViewer::CodeViewer(QWidget *parent) : QPlainTextEdit(parent) {
     setReadOnly(true);

@@ -1,6 +1,9 @@
 #include <QApplication>
 #include <QFile>
-#include "src/MainWindow.h"
+#include "src/MainWindow_simple.h"
+
+// Global variable definition
+QString globalUserToken = "";
 
 // ...existing code...
 int main(int argc, char *argv[]) {

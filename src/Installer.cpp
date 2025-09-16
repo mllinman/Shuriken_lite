@@ -7,11 +7,14 @@
 #include <QJsonObject>
 #include <QTextStream>
 #include <QStandardPaths>
+
+#ifdef Q_OS_WIN
 #include <windows.h>
 #include <shlobj.h>
 #include <shobjidl.h>
 #include <comdef.h>
 #include <objbase.h>
+#endif
 
 
 Installer::Installer(QString appName, QString exePath, QString manifestPath)
@@ -45,19 +48,28 @@ bool Installer::createInstaller(QString outPath, QString &log) {
     }
 
     // 🔹 Define install paths
+#ifdef Q_OS_WIN
     QString programFiles = QString::fromWCharArray(_wgetenv(L"ProgramFiles"));
     QString installDir = programFiles + "\\" + appName;
+#else
+    QString installDir = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation) + "/" + appName;
+#endif
 
     QDir().mkpath(installDir);
 
     // 🔹 Copy main executable
+#ifdef Q_OS_WIN
     QString destExe = installDir + "\\" + QFileInfo(exePath).fileName();
+#else
+    QString destExe = installDir + "/" + QFileInfo(exePath).fileName();
+#endif
     if (!QFile::copy(exePath, destExe)) {
         log.append("Failed to copy executable to install dir.\n");
         return false;
     }
     log.append("Installed " + appName + " to: " + installDir + "\n");
 
+#ifdef Q_OS_WIN
     // 🔹 Copy generic uninstaller
     QString uninstallerPath = installDir + "\\Uninstaller.exe";
     if (!QFile::copy("resources/Uninstaller.exe", uninstallerPath)) {
@@ -71,10 +83,14 @@ bool Installer::createInstaller(QString outPath, QString &log) {
         log.append("Failed to register uninstaller.\n");
     else
         log.append("Uninstaller registered in registry with versioning.\n");
+#else
+    log.append("Cross-platform installer created (uninstaller registration not supported on this platform).\n");
+#endif
 
     return true;
 }
 
+#ifdef Q_OS_WIN
 bool Installer::registerUninstaller(QString appName, QString installDir,
                                     QString uninstallerPath, QString installedExe,
                                     QString publisher, QString version, QString description) {
@@ -115,5 +131,13 @@ bool Installer::registerUninstaller(QString appName, QString installDir,
     RegCloseKey(hKey);
     return true;
 }
+#else
+bool Installer::registerUninstaller(QString appName, QString installDir,
+                                    QString uninstallerPath, QString installedExe,
+                                    QString publisher, QString version, QString description) {
+    // Cross-platform: Not implemented, return true for now
+    return true;
+}
+#endif
 
 

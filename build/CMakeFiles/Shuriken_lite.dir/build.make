@@ -114,19 +114,19 @@ CMakeFiles/Shuriken_lite.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Shuriken_lite.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/work/Shuriken_lite/Shuriken_lite/main.cpp -o CMakeFiles/Shuriken_lite.dir/main.cpp.s
 
-CMakeFiles/Shuriken_lite.dir/src/MainWindow.cpp.o: CMakeFiles/Shuriken_lite.dir/flags.make
-CMakeFiles/Shuriken_lite.dir/src/MainWindow.cpp.o: /home/runner/work/Shuriken_lite/Shuriken_lite/src/MainWindow.cpp
-CMakeFiles/Shuriken_lite.dir/src/MainWindow.cpp.o: CMakeFiles/Shuriken_lite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/runner/work/Shuriken_lite/Shuriken_lite/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Shuriken_lite.dir/src/MainWindow.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Shuriken_lite.dir/src/MainWindow.cpp.o -MF CMakeFiles/Shuriken_lite.dir/src/MainWindow.cpp.o.d -o CMakeFiles/Shuriken_lite.dir/src/MainWindow.cpp.o -c /home/runner/work/Shuriken_lite/Shuriken_lite/src/MainWindow.cpp
+CMakeFiles/Shuriken_lite.dir/src/MainWindow_simple.cpp.o: CMakeFiles/Shuriken_lite.dir/flags.make
+CMakeFiles/Shuriken_lite.dir/src/MainWindow_simple.cpp.o: /home/runner/work/Shuriken_lite/Shuriken_lite/src/MainWindow_simple.cpp
+CMakeFiles/Shuriken_lite.dir/src/MainWindow_simple.cpp.o: CMakeFiles/Shuriken_lite.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/runner/work/Shuriken_lite/Shuriken_lite/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Shuriken_lite.dir/src/MainWindow_simple.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Shuriken_lite.dir/src/MainWindow_simple.cpp.o -MF CMakeFiles/Shuriken_lite.dir/src/MainWindow_simple.cpp.o.d -o CMakeFiles/Shuriken_lite.dir/src/MainWindow_simple.cpp.o -c /home/runner/work/Shuriken_lite/Shuriken_lite/src/MainWindow_simple.cpp
 
-CMakeFiles/Shuriken_lite.dir/src/MainWindow.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Shuriken_lite.dir/src/MainWindow.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/work/Shuriken_lite/Shuriken_lite/src/MainWindow.cpp > CMakeFiles/Shuriken_lite.dir/src/MainWindow.cpp.i
+CMakeFiles/Shuriken_lite.dir/src/MainWindow_simple.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Shuriken_lite.dir/src/MainWindow_simple.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/work/Shuriken_lite/Shuriken_lite/src/MainWindow_simple.cpp > CMakeFiles/Shuriken_lite.dir/src/MainWindow_simple.cpp.i
 
-CMakeFiles/Shuriken_lite.dir/src/MainWindow.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Shuriken_lite.dir/src/MainWindow.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/work/Shuriken_lite/Shuriken_lite/src/MainWindow.cpp -o CMakeFiles/Shuriken_lite.dir/src/MainWindow.cpp.s
+CMakeFiles/Shuriken_lite.dir/src/MainWindow_simple.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Shuriken_lite.dir/src/MainWindow_simple.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/work/Shuriken_lite/Shuriken_lite/src/MainWindow_simple.cpp -o CMakeFiles/Shuriken_lite.dir/src/MainWindow_simple.cpp.s
 
 CMakeFiles/Shuriken_lite.dir/src/Installer.cpp.o: CMakeFiles/Shuriken_lite.dir/flags.make
 CMakeFiles/Shuriken_lite.dir/src/Installer.cpp.o: /home/runner/work/Shuriken_lite/Shuriken_lite/src/Installer.cpp
@@ -226,19 +226,19 @@ CMakeFiles/Shuriken_lite.dir/src/Debugger.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Shuriken_lite.dir/src/Debugger.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/work/Shuriken_lite/Shuriken_lite/src/Debugger.cpp -o CMakeFiles/Shuriken_lite.dir/src/Debugger.cpp.s
 
-CMakeFiles/Shuriken_lite.dir/src/CodeEditor.cpp.o: CMakeFiles/Shuriken_lite.dir/flags.make
-CMakeFiles/Shuriken_lite.dir/src/CodeEditor.cpp.o: /home/runner/work/Shuriken_lite/Shuriken_lite/src/CodeEditor.cpp
-CMakeFiles/Shuriken_lite.dir/src/CodeEditor.cpp.o: CMakeFiles/Shuriken_lite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/runner/work/Shuriken_lite/Shuriken_lite/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Shuriken_lite.dir/src/CodeEditor.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Shuriken_lite.dir/src/CodeEditor.cpp.o -MF CMakeFiles/Shuriken_lite.dir/src/CodeEditor.cpp.o.d -o CMakeFiles/Shuriken_lite.dir/src/CodeEditor.cpp.o -c /home/runner/work/Shuriken_lite/Shuriken_lite/src/CodeEditor.cpp
+CMakeFiles/Shuriken_lite.dir/src/CodeEditor_simple.cpp.o: CMakeFiles/Shuriken_lite.dir/flags.make
+CMakeFiles/Shuriken_lite.dir/src/CodeEditor_simple.cpp.o: /home/runner/work/Shuriken_lite/Shuriken_lite/src/CodeEditor_simple.cpp
+CMakeFiles/Shuriken_lite.dir/src/CodeEditor_simple.cpp.o: CMakeFiles/Shuriken_lite.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/runner/work/Shuriken_lite/Shuriken_lite/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Shuriken_lite.dir/src/CodeEditor_simple.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Shuriken_lite.dir/src/CodeEditor_simple.cpp.o -MF CMakeFiles/Shuriken_lite.dir/src/CodeEditor_simple.cpp.o.d -o CMakeFiles/Shuriken_lite.dir/src/CodeEditor_simple.cpp.o -c /home/runner/work/Shuriken_lite/Shuriken_lite/src/CodeEditor_simple.cpp
 
-CMakeFiles/Shuriken_lite.dir/src/CodeEditor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Shuriken_lite.dir/src/CodeEditor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/work/Shuriken_lite/Shuriken_lite/src/CodeEditor.cpp > CMakeFiles/Shuriken_lite.dir/src/CodeEditor.cpp.i
+CMakeFiles/Shuriken_lite.dir/src/CodeEditor_simple.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Shuriken_lite.dir/src/CodeEditor_simple.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/work/Shuriken_lite/Shuriken_lite/src/CodeEditor_simple.cpp > CMakeFiles/Shuriken_lite.dir/src/CodeEditor_simple.cpp.i
 
-CMakeFiles/Shuriken_lite.dir/src/CodeEditor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Shuriken_lite.dir/src/CodeEditor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/work/Shuriken_lite/Shuriken_lite/src/CodeEditor.cpp -o CMakeFiles/Shuriken_lite.dir/src/CodeEditor.cpp.s
+CMakeFiles/Shuriken_lite.dir/src/CodeEditor_simple.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Shuriken_lite.dir/src/CodeEditor_simple.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/work/Shuriken_lite/Shuriken_lite/src/CodeEditor_simple.cpp -o CMakeFiles/Shuriken_lite.dir/src/CodeEditor_simple.cpp.s
 
 CMakeFiles/Shuriken_lite.dir/src/TerminalWidget.cpp.o: CMakeFiles/Shuriken_lite.dir/flags.make
 CMakeFiles/Shuriken_lite.dir/src/TerminalWidget.cpp.o: /home/runner/work/Shuriken_lite/Shuriken_lite/src/TerminalWidget.cpp
@@ -314,7 +314,7 @@ CMakeFiles/Shuriken_lite.dir/build/.rcc/qrc_resources.cpp.s: cmake_force
 Shuriken_lite_OBJECTS = \
 "CMakeFiles/Shuriken_lite.dir/Shuriken_lite_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/Shuriken_lite.dir/main.cpp.o" \
-"CMakeFiles/Shuriken_lite.dir/src/MainWindow.cpp.o" \
+"CMakeFiles/Shuriken_lite.dir/src/MainWindow_simple.cpp.o" \
 "CMakeFiles/Shuriken_lite.dir/src/Installer.cpp.o" \
 "CMakeFiles/Shuriken_lite.dir/src/Builder.cpp.o" \
 "CMakeFiles/Shuriken_lite.dir/src/Uninstaller.cpp.o" \
@@ -322,7 +322,7 @@ Shuriken_lite_OBJECTS = \
 "CMakeFiles/Shuriken_lite.dir/src/ProjectHubPanel.cpp.o" \
 "CMakeFiles/Shuriken_lite.dir/src/IssueManager.cpp.o" \
 "CMakeFiles/Shuriken_lite.dir/src/Debugger.cpp.o" \
-"CMakeFiles/Shuriken_lite.dir/src/CodeEditor.cpp.o" \
+"CMakeFiles/Shuriken_lite.dir/src/CodeEditor_simple.cpp.o" \
 "CMakeFiles/Shuriken_lite.dir/src/TerminalWidget.cpp.o" \
 "CMakeFiles/Shuriken_lite.dir/src/Updater.cpp.o" \
 "CMakeFiles/Shuriken_lite.dir/src/CodeViewer.cpp.o" \
@@ -334,7 +334,7 @@ Shuriken_lite_EXTERNAL_OBJECTS =
 
 Shuriken_lite: CMakeFiles/Shuriken_lite.dir/Shuriken_lite_autogen/mocs_compilation.cpp.o
 Shuriken_lite: CMakeFiles/Shuriken_lite.dir/main.cpp.o
-Shuriken_lite: CMakeFiles/Shuriken_lite.dir/src/MainWindow.cpp.o
+Shuriken_lite: CMakeFiles/Shuriken_lite.dir/src/MainWindow_simple.cpp.o
 Shuriken_lite: CMakeFiles/Shuriken_lite.dir/src/Installer.cpp.o
 Shuriken_lite: CMakeFiles/Shuriken_lite.dir/src/Builder.cpp.o
 Shuriken_lite: CMakeFiles/Shuriken_lite.dir/src/Uninstaller.cpp.o
@@ -342,7 +342,7 @@ Shuriken_lite: CMakeFiles/Shuriken_lite.dir/src/NotificationManager.cpp.o
 Shuriken_lite: CMakeFiles/Shuriken_lite.dir/src/ProjectHubPanel.cpp.o
 Shuriken_lite: CMakeFiles/Shuriken_lite.dir/src/IssueManager.cpp.o
 Shuriken_lite: CMakeFiles/Shuriken_lite.dir/src/Debugger.cpp.o
-Shuriken_lite: CMakeFiles/Shuriken_lite.dir/src/CodeEditor.cpp.o
+Shuriken_lite: CMakeFiles/Shuriken_lite.dir/src/CodeEditor_simple.cpp.o
 Shuriken_lite: CMakeFiles/Shuriken_lite.dir/src/TerminalWidget.cpp.o
 Shuriken_lite: CMakeFiles/Shuriken_lite.dir/src/Updater.cpp.o
 Shuriken_lite: CMakeFiles/Shuriken_lite.dir/src/CodeViewer.cpp.o
@@ -352,6 +352,7 @@ Shuriken_lite: CMakeFiles/Shuriken_lite.dir/build.make
 Shuriken_lite: CMakeFiles/Shuriken_lite.dir/compiler_depend.ts
 Shuriken_lite: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2
 Shuriken_lite: /usr/lib/x86_64-linux-gnu/libQt6WebSockets.so.6.4.2
+Shuriken_lite: /usr/lib/llvm-18/lib/libclang.so
 Shuriken_lite: /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.4.2
 Shuriken_lite: /usr/lib/x86_64-linux-gnu/libGLX.so
 Shuriken_lite: /usr/lib/x86_64-linux-gnu/libOpenGL.so

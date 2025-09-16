@@ -1,6 +1,11 @@
+#ifdef Q_OS_WIN
 #include <windows.h>
 #include <shlobj.h>
 #include <shobjidl.h>
+#include <comdef.h>
+#include <objbase.h>
+#endif
+
 #include <QDir>
 #include <QFile>
 #include <QStandardPaths>
@@ -10,10 +15,8 @@
 #include <QFileInfo>
 #include <QTextStream>
 #include <QProcess>
-#include <comdef.h>
-#include <objbase.h>
 
-
+#ifdef Q_OS_WIN
 bool createShortcut(QString location, QString name, QString targetPath) {
     QString folder;
     if (location == "Desktop")
@@ -24,8 +27,7 @@ bool createShortcut(QString location, QString name, QString targetPath) {
         return false;
 
     QString lnkPath = folder + "\\" + name + ".lnk";
-    CoInitialize(NULL);
-
+    
     HRESULT hres;
     IShellLinkW* psl;
 
@@ -62,6 +64,7 @@ bool createShortcut(QString location, QString name, QString targetPath) {
 
     return SUCCEEDED(hres);
 }
+
 void deleteShortcut(QString location, QString name) {
     QString folder;
     if (location == "Desktop")
@@ -103,8 +106,22 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
         return 1;
     }
 
-    // Add missing closing brace for wWinMain
-    // ...existing code...
     return 0;
 }
 
+#else
+// Cross-platform stub implementations
+bool createShortcut(QString location, QString name, QString targetPath) {
+    // Not implemented for non-Windows platforms
+    return true;
+}
+
+void deleteShortcut(QString location, QString name) {
+    // Not implemented for non-Windows platforms
+}
+
+bool removeRegistryEntry(QString appName) {
+    // Not implemented for non-Windows platforms
+    return true;
+}
+#endif

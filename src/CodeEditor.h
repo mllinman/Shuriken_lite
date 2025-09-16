@@ -6,7 +6,10 @@
 #include <QTextDocument>
 #include <QMouseEvent>
 #include <QPaintEvent>
-
+#include <QResizeEvent>
+#include <QRegularExpression>
+#include <QFile>
+#include <QTextStream>
 
 class CppHighlighter : public QSyntaxHighlighter {
     Q_OBJECT
@@ -27,18 +30,22 @@ public:
     bool hasBreakpoint(int line) const {
         return breakpoints.contains(QString::number(line));
     }
+    int lineNumberAreaWidth();
+    void lineNumberAreaPaintEvent(QPaintEvent *event);
+
+protected:
+    void mousePressEvent(QMouseEvent *event) override;
+    void resizeEvent(QResizeEvent *event) override;
+
+private slots:
+    void updateLineNumberAreaWidth(int newBlockCount);
+    void highlightCurrentLine();
 
 private:
     QString currentFile;
     QString filePath;
     QSet<QString> breakpoints;
     CppHighlighter *highlighter;
-    void setFormatForPattern(const QString &pattern, const QTextCharFormat &format);
-    void mousePressEvent(QMouseEvent *event) override;
-    void lineNumberAreaPaintEvent(QPaintEvent *event);
-    int lineNumberAreaWidth();
-    void updateLineNumberAreaWidth(int newBlockCount);
-    void highlightCurrentLine();
-    void resizeEvent(QResizeEvent *event) override;
     QWidget *lineNumberArea;
+    void setFormatForPattern(const QString &pattern, const QTextCharFormat &format);
 };

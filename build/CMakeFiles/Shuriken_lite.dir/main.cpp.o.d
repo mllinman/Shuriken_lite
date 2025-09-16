@@ -359,7 +359,7 @@ CMakeFiles/Shuriken_lite.dir/main.cpp.o: \
  /usr/include/c++/13/bits/istream.tcc \
  /usr/include/c++/13/bits/sstream.tcc /usr/include/c++/13/codecvt \
  /usr/include/c++/13/bits/fs_dir.h /usr/include/c++/13/bits/fs_ops.h \
- /home/runner/work/Shuriken_lite/Shuriken_lite/src/MainWindow.h \
+ /home/runner/work/Shuriken_lite/Shuriken_lite/src/MainWindow_simple.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmainwindow.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
@@ -373,138 +373,19 @@ CMakeFiles/Shuriken_lite.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qfontinfo.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsizepolicy.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QProcess \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qprocess.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QFileSystemModel \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qfilesystemmodel.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QDir \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qdir.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qfile.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qfileinfo.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qdatetime.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcalendar.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qdiriterator.h \
- /home/runner/work/Shuriken_lite/Shuriken_lite/src/CodeEditor.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPlainTextEdit \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qplaintextedit.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtextedit.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractscrollarea.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextoption.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextcursor.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextformat.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qabstracttextdocumentlayout.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextlayout.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qevent.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qpointer.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qeventpoint.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qvector2d.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qvectornd.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qpointingdevice.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qinputdevice.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qscreen.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QList \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qlist.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QRect \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qrect.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QSize \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qsize.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QSizeF \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QTransform \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qglyphrun.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qrawfont.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qfontdatabase.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QSyntaxHighlighter \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qsyntaxhighlighter.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextobject.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QSet \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qset.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QTextDocument \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QMouseEvent \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qevent.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QPaintEvent \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTabWidget \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qpushbutton.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWebSockets/QWebSocketServer \
- /usr/include/x86_64-linux-gnu/qt6/QtWebSockets/qwebsocketserver.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWebSockets/qwebsockets_global.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWebSockets/qtwebsocketsexports.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWebSockets/qwebsocketprotocol.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qstring.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/QHostAddress \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qhostaddress.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qtnetworkglobal.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qtnetwork-config.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qtnetworkexports.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qabstractsocket.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/QSslConfiguration \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qsslconfiguration.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qsslsocket.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qtcpsocket.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qhostaddress.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qsslerror.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qsslcertificate.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qcryptographichash.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qssl.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QFlags \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qflags.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/QSslError \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qsslerror.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWebSockets/QWebSocket \
- /usr/include/x86_64-linux-gnu/qt6/QtWebSockets/qwebsocket.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QUrl \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/QAbstractSocket \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qabstractsocket.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/QNetworkRequest \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qnetworkrequest.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QSharedDataPointer \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qshareddata.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QVariant \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/QNetworkProxy \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qnetworkproxy.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qnetworkrequest.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/QHostAddress \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTreeWidget \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtreewidget.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtreeview.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemview.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qitemselectionmodel.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemdelegate.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyleoption.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractspinbox.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qvalidator.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qregularexpression.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qslider.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractslider.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyle.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabbar.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qrubberband.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtreewidgetitemiterator.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTreeView \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtreeview.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QListWidgetItem \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlistwidget.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlistview.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QDir \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qdir.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QJsonDocument \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qjsondocument.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qjsonvalue.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcborvalue.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcborcommon.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qregularexpression.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/quuid.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QJsonObject \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qjsonobject.h \

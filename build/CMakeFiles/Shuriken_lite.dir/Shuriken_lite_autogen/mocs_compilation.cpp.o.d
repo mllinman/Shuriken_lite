@@ -401,6 +401,35 @@ CMakeFiles/Shuriken_lite.dir/Shuriken_lite_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QMouseEvent \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qevent.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QPaintEvent \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QResizeEvent \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QRegularExpression \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qregularexpression.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QFile \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qfile.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qfiledevice.h \
+ /usr/include/c++/13/filesystem /usr/include/c++/13/bits/fs_fwd.h \
+ /usr/include/c++/13/bits/fs_path.h /usr/include/c++/13/locale \
+ /usr/include/c++/13/bits/locale_facets.h /usr/include/c++/13/cwctype \
+ /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h \
+ /usr/include/c++/13/bits/locale_facets.tcc \
+ /usr/include/c++/13/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/13/bits/codecvt.h \
+ /usr/include/c++/13/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/13/bits/locale_conv.h /usr/include/c++/13/iomanip \
+ /usr/include/c++/13/bits/quoted_string.h /usr/include/c++/13/sstream \
+ /usr/include/c++/13/istream /usr/include/c++/13/ios \
+ /usr/include/c++/13/bits/basic_ios.h \
+ /usr/include/c++/13/bits/basic_ios.tcc /usr/include/c++/13/ostream \
+ /usr/include/c++/13/bits/ostream.tcc \
+ /usr/include/c++/13/bits/istream.tcc \
+ /usr/include/c++/13/bits/sstream.tcc /usr/include/c++/13/codecvt \
+ /usr/include/c++/13/bits/fs_dir.h /usr/include/c++/13/bits/fs_ops.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QTextStream \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qtextstream.h \
  /home/runner/work/Shuriken_lite/Shuriken_lite/build/Shuriken_lite_autogen/UVLADIE3JM/moc_CodeViewer.cpp \
  /home/runner/work/Shuriken_lite/Shuriken_lite/build/Shuriken_lite_autogen/UVLADIE3JM/../../../src/CodeViewer.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QFont \
@@ -454,87 +483,20 @@ CMakeFiles/Shuriken_lite.dir/Shuriken_lite_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtNetwork/QNetworkAccessManager \
  /usr/include/x86_64-linux-gnu/qt6/QtNetwork/QSslError \
  /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qsslerror.h \
- /home/runner/work/Shuriken_lite/Shuriken_lite/build/Shuriken_lite_autogen/UVLADIE3JM/moc_MainWindow.cpp \
- /home/runner/work/Shuriken_lite/Shuriken_lite/build/Shuriken_lite_autogen/UVLADIE3JM/../../../src/MainWindow.h \
+ /home/runner/work/Shuriken_lite/Shuriken_lite/build/Shuriken_lite_autogen/UVLADIE3JM/moc_MainWindow_simple.cpp \
+ /home/runner/work/Shuriken_lite/Shuriken_lite/build/Shuriken_lite_autogen/UVLADIE3JM/../../../src/MainWindow_simple.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmainwindow.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QFileSystemModel \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qfilesystemmodel.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qdir.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qfile.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qfiledevice.h \
- /usr/include/c++/13/filesystem /usr/include/c++/13/bits/fs_fwd.h \
- /usr/include/c++/13/bits/fs_path.h /usr/include/c++/13/locale \
- /usr/include/c++/13/bits/locale_facets.h /usr/include/c++/13/cwctype \
- /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h \
- /usr/include/c++/13/bits/locale_facets.tcc \
- /usr/include/c++/13/bits/locale_facets_nonio.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
- /usr/include/libintl.h /usr/include/c++/13/bits/codecvt.h \
- /usr/include/c++/13/bits/locale_facets_nonio.tcc \
- /usr/include/c++/13/bits/locale_conv.h /usr/include/c++/13/iomanip \
- /usr/include/c++/13/bits/quoted_string.h /usr/include/c++/13/sstream \
- /usr/include/c++/13/istream /usr/include/c++/13/ios \
- /usr/include/c++/13/bits/basic_ios.h \
- /usr/include/c++/13/bits/basic_ios.tcc /usr/include/c++/13/ostream \
- /usr/include/c++/13/bits/ostream.tcc \
- /usr/include/c++/13/bits/istream.tcc \
- /usr/include/c++/13/bits/sstream.tcc /usr/include/c++/13/codecvt \
- /usr/include/c++/13/bits/fs_dir.h /usr/include/c++/13/bits/fs_ops.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qfileinfo.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qdiriterator.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTabWidget \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qpushbutton.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWebSockets/QWebSocketServer \
- /usr/include/x86_64-linux-gnu/qt6/QtWebSockets/qwebsocketserver.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWebSockets/qwebsockets_global.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWebSockets/qtwebsocketsexports.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWebSockets/qwebsocketprotocol.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/QHostAddress \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qhostaddress.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWebSockets/QWebSocket \
- /usr/include/x86_64-linux-gnu/qt6/QtWebSockets/qwebsocket.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/QAbstractSocket \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qabstractsocket.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/QNetworkProxy \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qnetworkproxy.h \
- /usr/include/x86_64-linux-gnu/qt6/QtNetwork/QHostAddress \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTreeWidget \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtreewidget.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtreeview.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemview.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qitemselectionmodel.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemdelegate.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyleoption.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractspinbox.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qvalidator.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qregularexpression.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qslider.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractslider.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyle.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabbar.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qrubberband.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtreewidgetitemiterator.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTreeView \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtreeview.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QListWidgetItem \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlistwidget.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlistview.h \
  /home/runner/work/Shuriken_lite/Shuriken_lite/build/Shuriken_lite_autogen/UVLADIE3JM/moc_NotificationManager.cpp \
  /home/runner/work/Shuriken_lite/Shuriken_lite/build/Shuriken_lite_autogen/UVLADIE3JM/../../../src/NotificationManager.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtmetamacros.h \
- /home/runner/work/Shuriken_lite/Shuriken_lite/build/Shuriken_lite_autogen/UVLADIE3JM/moc_TerminalWidget.cpp \
- /home/runner/work/Shuriken_lite/Shuriken_lite/build/Shuriken_lite_autogen/UVLADIE3JM/../../../src/TerminalWidget.h \
+ /home/runner/work/Shuriken_lite/Shuriken_lite/build/Shuriken_lite_autogen/UVLADIE3JM/moc_ProjectHubPanel.cpp \
+ /home/runner/work/Shuriken_lite/Shuriken_lite/build/Shuriken_lite_autogen/UVLADIE3JM/../../../src/ProjectHubPanel.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
+ /home/runner/work/Shuriken_lite/Shuriken_lite/build/Shuriken_lite_autogen/UVLADIE3JM/moc_TerminalWidget.cpp \
+ /home/runner/work/Shuriken_lite/Shuriken_lite/build/Shuriken_lite_autogen/UVLADIE3JM/../../../src/TerminalWidget.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLineEdit \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlineedit.h \
  /home/runner/work/Shuriken_lite/Shuriken_lite/build/Shuriken_lite_autogen/UVLADIE3JM/moc_Updater.cpp \
