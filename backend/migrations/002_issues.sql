@@ -19,8 +19,3 @@ CREATE TABLE issue_comments (
     FOREIGN KEY(issueId) REFERENCES issues(id),
     FOREIGN KEY(commenterEmail) REFERENCES users(email)
 );
-CREATE TABLE migrations (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    appliedAt TEXT DEFAULT CURRENT_TIMESTAMP
-);
