@@ -18,10 +18,13 @@ include_directories(${CMAKE_SOURCE_DIR}/ui)
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets WebSockets)
 find_package(Qt6 REQUIRED COMPONENTS Widgets Network WebSockets)
 
+# Add clang include path
+include_directories(/usr/lib/llvm-18/include)
+
 add_executable(Shuriken_lite
     main.cpp
-    src/MainWindow.cpp
-    src/MainWindow.h
+    src/MainWindow_simple.cpp
+    src/MainWindow_simple.h
     src/Installer.cpp
     src/Installer.h
     src/Builder.cpp
@@ -34,12 +37,28 @@ add_executable(Shuriken_lite
     src/ProjectHubPanel.h
     src/IssueManager.cpp
     src/IssueManager.h
-    ui/MainWindow.ui
+    src/Debugger.cpp
+    src/Debugger.h
+    src/CodeEditor_simple.cpp
+    src/CodeEditor.h
+    src/TerminalWidget.cpp
+    src/TerminalWidget.h
+    src/Updater.cpp
+    src/Updater.h
+    src/CodeViewer.cpp
+    src/CodeViewer.h
+    src/CodeCompleter.cpp
+    src/CodeCompleter.h
+    ui/Mainwindow.ui
 )
-   qt6_add_resources(RESOURCES resources.qrc)
+
+qt6_add_resources(Shuriken_lite "resources" PREFIX "/" FILES
+    resources/darktheme.qss
+    resources/shuriken_logo.png
+)
 # Link all required Qt6 components
 
-target_link_libraries(Shuriken_lite Qt6::Widgets Qt6::Network Qt6::WebSockets)
+target_link_libraries(Shuriken_lite Qt6::Widgets Qt6::Network Qt6::WebSockets /usr/lib/llvm-18/lib/libclang.so)
 
 # --- Installer via CPack ---
 include(InstallRequiredSystemLibraries)

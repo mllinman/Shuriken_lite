@@ -65,8 +65,6 @@
   <widget class="QMenuBar" name="menubar"/>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="../resources/darktheme.qss"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

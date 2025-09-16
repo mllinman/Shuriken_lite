@@ -6,6 +6,11 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
+NotificationManager::NotificationManager(QObject *parent) : QObject(parent) {
+    // Initialize with empty token
+    userToken = "";
+}
+
 void NotificationManager::listNotifications() {
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
     QNetworkRequest req(QUrl("http://localhost:4242/notifications"));

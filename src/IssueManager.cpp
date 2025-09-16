@@ -10,6 +10,8 @@ extern QString globalUserToken;
 
 IssueManager::IssueManager(QObject *parent) : QObject(parent) {}
 
+IssueManager::~IssueManager() {}
+
 void IssueManager::listIssues(int projectId) {
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
     QNetworkRequest req(QUrl("http://localhost:4242/issues/" + QString::number(projectId)));

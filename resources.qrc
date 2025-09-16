@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/darktheme.qss</file>
+        <file>resources/shuriken_logo.png</file>
+    </qresource>
+</RCC>

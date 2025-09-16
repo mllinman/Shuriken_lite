@@ -7,6 +7,7 @@ class CodeCompleter : public QObject {
     Q_OBJECT
 public:
     CodeCompleter(QObject *parent = nullptr);
+    ~CodeCompleter();
     QStringList completeAt(const QString &file, int line, int column);
 
 private:

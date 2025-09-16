@@ -1,7 +1,19 @@
-#include <QTimer>
+#ifndef PROJECTHUBPANEL_H
+#define PROJECTHUBPANEL_H
 
-class ProjectHubPanel
+#include <QWidget>
+
+class QTimer;
+class QListWidget;
+class QPushButton;
+
+class ProjectHubPanel : public QWidget
 {
+    Q_OBJECT
+    
+public:
+    explicit ProjectHubPanel(QWidget *parent = nullptr);
+
 private:
     QTimer *feedRefreshTimer;
     QListWidget *feedList;
@@ -11,6 +23,6 @@ private:
     QPushButton *refreshIssuesBtn;
     QPushButton *newIssueBtn;
     int currentProjectId;
-    ProjectManager *pm;
-    IssueManager *im;
 };
+
+#endif // PROJECTHUBPANEL_H

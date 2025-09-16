@@ -1,25 +1,11 @@
-class Debugger : public QObject {
-    Q_OBJECT
-public:
-    Debugger(QString exePath, QObject *parent = nullptr) : QObject(parent), exePath(exePath) {
-        process = new QProcess(this);
-    }
+#include "Debugger.h"
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <QWebSocket>
 
-    void start() {
-        process->start("gdb", {"--interpreter=mi", exePath});
-    }
-
-    void sendCommand(QString cmd) {
-        process->write((cmd + "\n").toUtf8());
-    }
-
-signals:
-    void debuggerOutput(QString);
-
-private:
-    QString exePath;
-    QProcess *process;
-};
+Debugger::Debugger(QString exePath, QObject *parent) : QObject(parent), exePath(exePath) {
+    process = new QProcess(this);
+    
     connect(process, &QProcess::readyReadStandardOutput, this, [=]() {
         QString output = process->readAllStandardOutput();
         emit debuggerOutput(output);
@@ -32,27 +18,13 @@ private:
             this, [=](int exitCode, QProcess::ExitStatus status) {
         emit debuggerOutput(QString("Debugger exited with code %1").arg(exitCode));
     });
-
-}
-void Debugger::broadcastState(QString state) {
-    QJsonObject obj;
-    obj["type"] = "debug-state";
-    obj["data"] = state;
-    socket->sendTextMessage(QJsonDocument(obj).toJson());
 }
 
-void Debugger::applyRemoteState(QJsonObject obj) {
-    QString state = obj["data"].toString();
-    ui->logOutput->append("[Remote Debug] " + state);
+void Debugger::start() {
+    process->start("gdb", {"--interpreter=mi", exePath});
 }
-    connect(socket, &QWebSocket::textMessageReceived, this, [=](const QString &msg) {
-        QJsonDocument doc = QJsonDocument::fromJson(msg.toUtf8());
-        if (!doc.isObject()) return;
-        applyRemoteState(doc.object());
-    });
-    connect(this, &Debugger::debuggerOutput, this, &Debugger::broadcastState);
-    connect(socket, &QWebSocket::disconnected, this, [=]() {
-        ui->statusBar->showMessage("Disconnected from collaboration server");
-    });
+
+void Debugger::sendCommand(QString cmd) {
+    process->write((cmd + "\n").toUtf8());
 }
 
