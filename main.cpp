@@ -4,7 +4,7 @@
 
 // ...existing code...
 int main(int argc, char *argv[]) {
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    // Qt6 automatically enables high DPI scaling, no need to set manually
     QApplication app(argc, argv);
         // QApplication::setApplicationName("Shuriken_lite");
     QApplication::setOrganizationName("BulletDrop_Studio");

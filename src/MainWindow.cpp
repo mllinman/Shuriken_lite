@@ -30,7 +30,7 @@
 #include "TerminalWidget.h"
 #include "Updater.h"
 #include "CodeViewer.h"
-#include "Completer.h"
+#include "CodeCompleter.h"
 #include <clang-c/Index.h>
 #include <QDirIterator>
 #include <QFont>
@@ -48,7 +48,7 @@
 #include <QSettings>
 #include <QWebSocket>
 #include <QNetworkAccessManager>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QDebug>
 
 QWebSocketServer *server = new QWebSocketServer("ShurikenCollab", QWebSocketServer::NonSecureMode);
@@ -749,7 +749,7 @@ void MainWindow::renameSymbol(QString file, int line, int col, QString newName) 
     QFile f(file);
     if (f.open(QIODevice::ReadOnly)) {
         QString code = f.readAll();
-        code.replace(QRegExp("\\b" + old + "\\b"), newName);
+        code.replace(QRegularExpression("\\b" + old + "\\b"), newName);
         f.close();
 
         if (f.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
@@ -1067,10 +1067,11 @@ void MainWindow::setupLogOutput() {
 }
 void MainWindow::onLogLinkClicked(const QUrl &link) {
     QString url = link.toString();
-    QRegExp fileLineRegex(R"(file://(.+):(\d+))");
-    if (fileLineRegex.indexIn(url) != -1) {
-        QString filePath = fileLineRegex.cap(1);
-        int lineNumber = fileLineRegex.cap(2).toInt();
+    QRegularExpression fileLineRegex(R"(file://(.+):(\d+))");
+    QRegularExpressionMatch match = fileLineRegex.match(url);
+    if (match.hasMatch()) {
+        QString filePath = match.captured(1);
+        int lineNumber = match.captured(2).toInt();
 
         // Open file in editor at specific line
         if (openEditors.contains(filePath)) {
