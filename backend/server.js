@@ -17,6 +17,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
 
 // Ensure DB exists
 if (!fs.existsSync(DB_FILE)) {
@@ -89,11 +90,33 @@ function pushNotification(userEmail, message) {
   );
 }
 
+app.use(cors());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 module.exports = { app, server, db, pushNotification };
+
+// E-commerce routes
+const ecommerceRoutes = require('./ecommerce');
+app.use('/api', ecommerceRoutes);
+
+// Serve static files for frontend and product images
+app.use(express.static('../frontend'));
+app.use('/images', express.static('public/images'));
+
+// Serve main page
+app.get('/', (req, res) => {
+  res.sendFile(require('path').join(__dirname, '../frontend/index.html'));
+});
+
 app.use(bodyParser.urlencoded({ extended: true }));
 const SECRET = "your_jwt_secret";
+
+// Start server
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`🚀 CyberRanger E-commerce Server running on port ${PORT}`);
+});
 
 // Example route to demonstrate pushNotification usage
 app.post("/star", (req, res) => {

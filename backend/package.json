@@ -1,11 +1,20 @@
 {
-	"name": "shuriken-backend",
+	"name": "cyberranger-ecommerce-backend",
 	"version": "1.0.0",
-	"main": "initDB.js",
+	"description": "CyberRanger E-commerce Platform Backend with Stripe Integration",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js",
+		"migrate": "node migrate.js",
+		"dev": "nodemon server.js"
+	},
+	"keywords": ["ecommerce", "cybersecurity", "stripe", "nodejs"],
 	"dependencies": {
-		"sqlite3": "^5.1.6",
-		"express": "^4.18.2",
 		"body-parser": "^1.20.2",
-		"jsonwebtoken": "^9.0.0"
+		"cors": "^2.8.5",
+		"express": "^4.18.2",
+		"jsonwebtoken": "^9.0.0",
+		"sqlite3": "^5.1.6",
+		"stripe": "^18.5.0"
 	}
 }
