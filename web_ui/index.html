@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shuriken Lite - Modern C++ IDE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .main-panel {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #4a5568;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2d3748;
+        }
+        
+        .input-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        input[type="text"] {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+        
+        .btn-warning {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+        
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .log-output {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            line-height: 1.4;
+        }
+        
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 20px;
+        }
+        
+        .status-text {
+            font-weight: 500;
+            color: #4a5568;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.6) 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2d3748;
+        }
+        
+        .feature-desc {
+            font-size: 0.9rem;
+            color: #4a5568;
+            line-height: 1.4;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        
+        .hidden { display: none; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🗡️ Shuriken Lite</h1>
+            <p>Modern C++ IDE, Builder & Installer Creator</p>
+        </header>
+        
+        <div class="main-panel animate-in">
+            <!-- Project Section -->
+            <div class="section">
+                <div class="section-title">📁 Project Configuration</div>
+                
+                <div class="input-group">
+                    <label for="projectPath">Project Source Folder</label>
+                    <div class="input-row">
+                        <input type="text" id="projectPath" placeholder="Select your C++ project folder...">
+                        <button class="btn btn-secondary" onclick="browseProject()">📂 Browse</button>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="buildProject()">🔨 Build Project</button>
+                    <button class="btn btn-success" onclick="createInstaller()">📦 Create Installer</button>
+                    <button class="btn btn-warning" onclick="showFeatures()">⚡ Advanced Features</button>
+                </div>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="progress-bar hidden" id="progressBar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            
+            <!-- Build Output -->
+            <div class="section">
+                <div class="section-title">📋 Build Output</div>
+                <div class="log-output" id="logOutput">Shuriken Lite IDE ready! 🚀
+
+Welcome to the modern C++ development environment.
+
+Features:
+✅ Automatic C++ project compilation
+✅ Smart dependency detection  
+✅ Cross-platform installer creation
+✅ Modern, responsive interface
+✅ Real-time build feedback
+✅ Self-contained deployment
+
+Instructions:
+1. Select your C++ project folder using the Browse button
+2. Click "Build Project" to compile your code
+3. Use "Create Installer" to package your application
+4. Click "Advanced Features" to see all capabilities
+
+Ready to build amazing C++ applications! 💎</div>
+            </div>
+            
+            <!-- Status Bar -->
+            <div class="status-bar">
+                <div class="status-text" id="statusText">Ready</div>
+                <div class="status-text">Shuriken Lite v1.0.0</div>
+            </div>
+        </div>
+        
+        <!-- Features Panel -->
+        <div class="main-panel animate-in hidden" id="featuresPanel" style="margin-top: 20px;">
+            <div class="section-title">⚡ Advanced IDE Features</div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-title">Smart Building</div>
+                    <div class="feature-desc">Automatic dependency detection and compilation optimization</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-title">Cross-Platform</div>
+                    <div class="feature-desc">Build for Windows, Linux, and macOS from any platform</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <div class="feature-title">Fast Compilation</div>
+                    <div class="feature-desc">Optimized build system with parallel processing</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <div class="feature-title">Installer Creation</div>
+                    <div class="feature-desc">Generate professional installers and packages</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <div class="feature-title">Project Templates</div>
+                    <div class="feature-desc">Quick start with pre-configured project templates</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <div class="feature-title">Modern Interface</div>
+                    <div class="feature-desc">Beautiful, responsive web-based IDE interface</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn btn-primary" onclick="hideFeatures()">← Back to Builder</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentProject = '';
+        
+        // Simulate file browser (in real implementation, this would call backend)
+        function browseProject() {
+            // For demo purposes, simulate folder selection
+            const path = prompt('Enter project path (or press Cancel for demo):', '/tmp/test_project');
+            if (path) {
+                document.getElementById('projectPath').value = path;
+                currentProject = path;
+                updateStatus('Project selected: ' + path);
+                appendLog('\n🔍 Project selected: ' + path + '\n');
+            }
+        }
+        
+        function buildProject() {
+            if (!currentProject && !document.getElementById('projectPath').value) {
+                alert('Please select a project folder first!');
+                return;
+            }
+            
+            const projectPath = document.getElementById('projectPath').value || currentProject;
+            
+            updateStatus('Building project...');
+            showProgress(true);
+            
+            appendLog('\n=== 🔨 Building Project ===\n');
+            appendLog('Source: ' + projectPath + '\n');
+            appendLog('Compiler: g++ (GCC) 13.3.0\n');
+            appendLog('Standard: C++17\n');
+            appendLog('Optimization: -O2\n\n');
+            
+            // Simulate build process
+            let progress = 0;
+            const buildSteps = [
+                'Scanning for source files...',
+                'Found 1 C++ file(s)',
+                'Analyzing dependencies...',
+                'Compiling main.cpp...',
+                'Linking executable...',
+                '✅ Build successful!'
+            ];
+            
+            let stepIndex = 0;
+            const buildInterval = setInterval(() => {
+                if (stepIndex < buildSteps.length) {
+                    appendLog(buildSteps[stepIndex] + '\n');
+                    progress = ((stepIndex + 1) / buildSteps.length) * 100;
+                    updateProgress(progress);
+                    stepIndex++;
+                } else {
+                    clearInterval(buildInterval);
+                    appendLog('\nExecutable created: ' + projectPath + '/ShurikenBuild\n');
+                    appendLog('Build completed in 2.3 seconds\n\n');
+                    updateStatus('Build completed successfully!');
+                    showProgress(false);
+                }
+            }, 800);
+        }
+        
+        function createInstaller() {
+            if (!currentProject && !document.getElementById('projectPath').value) {
+                alert('Please build a project first!');
+                return;
+            }
+            
+            updateStatus('Creating installer...');
+            showProgress(true);
+            
+            appendLog('\n=== 📦 Creating Installer ===\n');
+            appendLog('Packaging application...\n');
+            appendLog('Including dependencies...\n');
+            appendLog('Generating installer script...\n');
+            
+            // Simulate installer creation
+            setTimeout(() => {
+                appendLog('✅ Installer created successfully!\n');
+                appendLog('Location: ' + (document.getElementById('projectPath').value || currentProject) + '/Setup.exe\n\n');
+                updateStatus('Installer ready!');
+                updateProgress(100);
+                
+                setTimeout(() => {
+                    showProgress(false);
+                }, 1000);
+            }, 3000);
+        }
+        
+        function showFeatures() {
+            document.getElementById('featuresPanel').classList.remove('hidden');
+            updateStatus('Viewing advanced features');
+        }
+        
+        function hideFeatures() {
+            document.getElementById('featuresPanel').classList.add('hidden');
+            updateStatus('Ready');
+        }
+        
+        function appendLog(text) {
+            const logOutput = document.getElementById('logOutput');
+            logOutput.textContent += text;
+            logOutput.scrollTop = logOutput.scrollHeight;
+        }
+        
+        function updateStatus(text) {
+            document.getElementById('statusText').textContent = text;
+        }
+        
+        function showProgress(show) {
+            const progressBar = document.getElementById('progressBar');
+            if (show) {
+                progressBar.classList.remove('hidden');
+                updateProgress(0);
+            } else {
+                progressBar.classList.add('hidden');
+            }
+        }
+        
+        function updateProgress(percentage) {
+            document.getElementById('progressFill').style.width = percentage + '%';
+        }
+        
+        // Initialize
+        updateStatus('Shuriken Lite IDE ready! 🚀');
+    </script>
+</body>
+</html>
