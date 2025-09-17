@@ -183,6 +183,114 @@ router.post('/orders', (req, res) => {
   });
 });
 
+// Create subscription
+router.post('/create-subscription', async (req, res) => {
+  try {
+    const { email, name, company, plan, amount } = req.body;
+
+    // Create customer
+    const customer = await stripe.customers.create({
+      email,
+      name,
+      metadata: {
+        company: company || '',
+        plan: plan
+      }
+    });
+
+    // Create subscription
+    const subscription = await stripe.subscriptions.create({
+      customer: customer.id,
+      items: [{
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: `CyberRanger ${plan.charAt(0).toUpperCase() + plan.slice(1)} Plan`,
+          },
+          unit_amount: Math.round(amount * 100), // Convert to cents
+          recurring: {
+            interval: 'month',
+          },
+        },
+      }],
+      payment_behavior: 'default_incomplete',
+      payment_settings: { save_default_payment_method: 'on_subscription' },
+      expand: ['latest_invoice.payment_intent'],
+    });
+
+    // Save subscription to database
+    db.run(`INSERT INTO subscriptions 
+            (customer_id, subscription_id, email, name, company, plan, amount, status, created_at) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [customer.id, subscription.id, email, name, company || '', plan, amount, 'active', new Date().toISOString()],
+      function(err) {
+        if (err) {
+          console.error('Error saving subscription:', err);
+        }
+      });
+
+    res.json({
+      subscriptionId: subscription.id,
+      clientSecret: subscription.latest_invoice.payment_intent.client_secret,
+    });
+  } catch (error) {
+    console.error('Error creating subscription:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Get user subscriptions
+router.get('/subscriptions/:email', (req, res) => {
+  const sql = `SELECT * FROM subscriptions WHERE email = ? ORDER BY created_at DESC`;
+  
+  db.all(sql, [req.params.email], (err, rows) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.json(rows);
+  });
+});
+
+// Cancel subscription
+router.post('/cancel-subscription', async (req, res) => {
+  try {
+    const { subscriptionId } = req.body;
+    
+    const subscription = await stripe.subscriptions.update(subscriptionId, {
+      cancel_at_period_end: true
+    });
+
+    // Update database
+    db.run('UPDATE subscriptions SET status = ? WHERE subscription_id = ?',
+      ['cancelled', subscriptionId]);
+
+    res.json({ success: true, subscription });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Contact form endpoint
+router.post('/contact', (req, res) => {
+  const { name, email, subject, message } = req.body;
+  
+  // Save contact message to database
+  db.run(`INSERT INTO contact_messages (name, email, subject, message, created_at) 
+          VALUES (?, ?, ?, ?, ?)`,
+    [name, email, subject, message, new Date().toISOString()],
+    function(err) {
+      if (err) {
+        console.error('Error saving contact message:', err);
+        return res.status(500).json({ error: 'Failed to save message' });
+      }
+      
+      // In a real app, you'd send an email notification here
+      console.log(`New contact message from ${name} (${email}): ${subject}`);
+      
+      res.json({ success: true, messageId: this.lastID });
+    });
+});
+
 // Get user orders
 router.get('/orders/:userEmail', (req, res) => {
   const sql = `
@@ -204,7 +312,7 @@ router.get('/orders/:userEmail', (req, res) => {
   });
 });
 
-// Stripe webhook
+// Enhanced Stripe webhook with subscription handling
 router.post('/webhook', express.raw({type: 'application/json'}), (req, res) => {
   const sig = req.headers['stripe-signature'];
   let event;
@@ -230,6 +338,27 @@ router.post('/webhook', express.raw({type: 'application/json'}), (req, res) => {
       // Update order status
       db.run('UPDATE orders SET status = ? WHERE stripe_payment_intent_id = ?',
         ['cancelled', failedPayment.id]);
+      break;
+
+    case 'invoice.payment_succeeded':
+      const invoice = event.data.object;
+      // Update subscription status
+      db.run('UPDATE subscriptions SET status = ? WHERE subscription_id = ?',
+        ['active', invoice.subscription]);
+      break;
+
+    case 'invoice.payment_failed':
+      const failedInvoice = event.data.object;
+      // Update subscription status
+      db.run('UPDATE subscriptions SET status = ? WHERE subscription_id = ?',
+        ['past_due', failedInvoice.subscription]);
+      break;
+
+    case 'customer.subscription.deleted':
+      const deletedSub = event.data.object;
+      // Update subscription status
+      db.run('UPDATE subscriptions SET status = ? WHERE subscription_id = ?',
+        ['cancelled', deletedSub.id]);
       break;
 
     default:
