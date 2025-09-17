@@ -51,3 +51,7 @@ logs/
 
 # Cache
 .cache/
+
+# Keep assets directory
+!assets/
+!assets/*
