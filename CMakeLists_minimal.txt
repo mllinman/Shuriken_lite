@@ -1,0 +1,49 @@
+cmake_minimum_required(VERSION 3.16)
+project(Shuriken_lite VERSION 1.0 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+
+# Explicitly set the UI search path for AutoUic
+set(CMAKE_AUTOUIC_SEARCH_PATH "ui")
+
+# Add ui directory to include directories
+include_directories(${CMAKE_SOURCE_DIR}/ui)
+
+# Try to find Qt5 first, then Qt6 as fallback
+find_package(Qt5 COMPONENTS Core Gui Widgets QUIET)
+if(NOT Qt5_FOUND)
+    find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
+    set(QT_VERSION_MAJOR 6)
+else()
+    set(QT_VERSION_MAJOR 5)
+endif()
+
+add_executable(Shuriken_lite
+    main.cpp
+    src/MainWindow_simple.cpp
+    src/MainWindow_simple.h
+    src/Builder.cpp
+    src/Builder.h
+    src/Installer.cpp
+    src/Installer.h
+    ui/Mainwindow.ui
+)
+
+if(QT_VERSION_MAJOR EQUAL 6)
+    qt6_add_resources(Shuriken_lite "resources" PREFIX "/" FILES
+        resources/darktheme.qss
+        resources/shuriken_logo.png
+    )
+    target_link_libraries(Shuriken_lite Qt6::Widgets)
+else()
+    qt5_add_resources(Shuriken_lite "resources" PREFIX "/" FILES
+        resources/darktheme.qss
+        resources/shuriken_logo.png
+    )
+    target_link_libraries(Shuriken_lite Qt5::Widgets)
+endif()
+
+set_target_properties(Shuriken_lite PROPERTIES OUTPUT_NAME "Shuriken_lite")

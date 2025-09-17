@@ -14,9 +14,8 @@ set(CMAKE_AUTOUIC_SEARCH_PATH "ui")
 include_directories(${CMAKE_SOURCE_DIR}/ui)
 
 
-# Find all required Qt6 components
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets WebSockets)
-find_package(Qt6 REQUIRED COMPONENTS Widgets Network WebSockets)
+# Find all required Qt5 components  
+find_package(Qt5 REQUIRED COMPONENTS Core Gui Widgets Network WebSockets)
 
 # Add clang include path
 include_directories(/usr/lib/llvm-18/include)
@@ -52,13 +51,13 @@ add_executable(Shuriken_lite
     ui/Mainwindow.ui
 )
 
-qt6_add_resources(Shuriken_lite "resources" PREFIX "/" FILES
+qt5_add_resources(Shuriken_lite "resources" PREFIX "/" FILES
     resources/darktheme.qss
     resources/shuriken_logo.png
 )
-# Link all required Qt6 components
+# Link all required Qt5 components
 
-target_link_libraries(Shuriken_lite Qt6::Widgets Qt6::Network Qt6::WebSockets /usr/lib/llvm-18/lib/libclang.so)
+target_link_libraries(Shuriken_lite Qt5::Widgets Qt5::Network Qt5::WebSockets /usr/lib/llvm-18/lib/libclang.so)
 
 # --- Installer via CPack ---
 include(InstallRequiredSystemLibraries)
