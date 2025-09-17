@@ -361,36 +361,36 @@ Ready to build amazing C++ applications! 💎</div>
             
             appendLog('\n=== 🔨 Building Project ===\n');
             appendLog('Source: ' + projectPath + '\n');
-            appendLog('Compiler: g++ (GCC) 13.3.0\n');
-            appendLog('Standard: C++17\n');
-            appendLog('Optimization: -O2\n\n');
             
-            // Simulate build process
-            let progress = 0;
-            const buildSteps = [
-                'Scanning for source files...',
-                'Found 1 C++ file(s)',
-                'Analyzing dependencies...',
-                'Compiling main.cpp...',
-                'Linking executable...',
-                '✅ Build successful!'
-            ];
-            
-            let stepIndex = 0;
-            const buildInterval = setInterval(() => {
-                if (stepIndex < buildSteps.length) {
-                    appendLog(buildSteps[stepIndex] + '\n');
-                    progress = ((stepIndex + 1) / buildSteps.length) * 100;
-                    updateProgress(progress);
-                    stepIndex++;
-                } else {
-                    clearInterval(buildInterval);
-                    appendLog('\nExecutable created: ' + projectPath + '/ShurikenBuild\n');
-                    appendLog('Build completed in 2.3 seconds\n\n');
+            // Make actual API call to build
+            fetch('/api/build', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'projectPath=' + encodeURIComponent(projectPath)
+            })
+            .then(response => response.json())
+            .then(data => {
+                appendLog(data.log);
+                
+                if (data.success) {
+                    appendLog('\n✅ Build successful!\n');
+                    appendLog('Executable: ' + data.executable + '\n\n');
                     updateStatus('Build completed successfully!');
-                    showProgress(false);
+                } else {
+                    appendLog('\n❌ Build failed!\n\n');
+                    updateStatus('Build failed - check output');
                 }
-            }, 800);
+                
+                updateProgress(100);
+                setTimeout(() => showProgress(false), 1000);
+            })
+            .catch(error => {
+                appendLog('\n❌ Network error: ' + error.message + '\n\n');
+                updateStatus('Build failed - network error');
+                showProgress(false);
+            });
         }
         
         function createInstaller() {
@@ -399,25 +399,54 @@ Ready to build amazing C++ applications! 💎</div>
                 return;
             }
             
+            const projectPath = document.getElementById('projectPath').value || currentProject;
+            const executable = projectPath + '/ShurikenBuild';
+            
             updateStatus('Creating installer...');
             showProgress(true);
             
             appendLog('\n=== 📦 Creating Installer ===\n');
-            appendLog('Packaging application...\n');
-            appendLog('Including dependencies...\n');
-            appendLog('Generating installer script...\n');
+            appendLog('Creating multiple installer formats...\n');
             
-            // Simulate installer creation
-            setTimeout(() => {
-                appendLog('✅ Installer created successfully!\n');
-                appendLog('Location: ' + (document.getElementById('projectPath').value || currentProject) + '/Setup.exe\n\n');
-                updateStatus('Installer ready!');
-                updateProgress(100);
-                
+            // Create different installer types
+            const installerTypes = ['portable', 'debian', 'windows'];
+            let completed = 0;
+            
+            installerTypes.forEach((type, index) => {
                 setTimeout(() => {
-                    showProgress(false);
-                }, 1000);
-            }, 3000);
+                    appendLog('Creating ' + type + ' package...\n');
+                    
+                    // Simulate API call for installer creation
+                    fetch('/api/installer', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: 'executable=' + encodeURIComponent(executable) + '&type=' + type
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            appendLog('✅ ' + type.charAt(0).toUpperCase() + type.slice(1) + ' package created!\n');
+                            appendLog('Location: ' + data.output + '\n');
+                        } else {
+                            appendLog('❌ ' + type.charAt(0).toUpperCase() + type.slice(1) + ' package failed: ' + data.error + '\n');
+                        }
+                        
+                        completed++;
+                        updateProgress((completed / installerTypes.length) * 100);
+                        
+                        if (completed === installerTypes.length) {
+                            appendLog('\n🎉 All installer packages created successfully!\n\n');
+                            updateStatus('All installers ready!');
+                            setTimeout(() => showProgress(false), 1000);
+                        }
+                    })
+                    .catch(error => {
+                        appendLog('❌ Error creating ' + type + ' package\n');
+                        completed++;
+                        updateProgress((completed / installerTypes.length) * 100);
+                    });
+                }, index * 1000);
+            });
         }
         
         function showFeatures() {

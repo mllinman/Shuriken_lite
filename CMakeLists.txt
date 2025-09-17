@@ -11,11 +11,13 @@ add_executable(Shuriken_lite_console
     src/SimpleBuilder.h
 )
 
-# Web server version
+# Web server version with full installer support
 add_executable(Shuriken_lite_web
     main_webserver.cpp
     src/SimpleBuilder.cpp
     src/SimpleBuilder.h
+    src/SimpleInstaller.cpp
+    src/SimpleInstaller.h
 )
 
 # Link threading for web server

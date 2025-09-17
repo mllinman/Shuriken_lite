@@ -7,6 +7,7 @@
 #include <map>
 #include <regex>
 #include "src/SimpleBuilder.h"
+#include "src/SimpleInstaller.h"
 
 #ifdef _WIN32
 #include <winsock2.h>
@@ -22,6 +23,7 @@
 class WebServer {
 private:
     SimpleBuilder builder;
+    SimpleInstaller installer;
     int port;
     
     std::string readFile(const std::string& path) {
@@ -97,6 +99,40 @@ private:
         return response.str();
     }
     
+    std::string handleInstallerRequest(const std::string& executable, const std::string& installerType) {
+        if (!std::filesystem::exists(executable)) {
+            return R"({"success": false, "error": "Executable not found"})";
+        }
+        
+        std::string installerLog;
+        std::string outputPath = std::filesystem::path(executable).parent_path().string() + "/installer_output";
+        
+        bool success = false;
+        if (installerType == "windows") {
+            success = installer.createInstaller(executable, outputPath + ".exe", installerLog);
+        } else if (installerType == "debian") {
+            success = installer.createDebPackage(executable, outputPath, installerLog);
+        } else if (installerType == "portable") {
+            success = installer.createPortablePackage(executable, outputPath, installerLog);
+        }
+        
+        // Escape JSON strings
+        std::regex newline("\\n");
+        std::regex quote("\"");
+        installerLog = std::regex_replace(installerLog, quote, "\\\"");
+        installerLog = std::regex_replace(installerLog, newline, "\\n");
+        
+        std::ostringstream response;
+        response << "{";
+        response << "\"success\": " << (success ? "true" : "false") << ",";
+        response << "\"log\": \"" << installerLog << "\",";
+        response << "\"type\": \"" << installerType << "\",";
+        response << "\"output\": \"" << outputPath << "\"";
+        response << "}";
+        
+        return response.str();
+    }
+    
     std::string createHttpResponse(int status, const std::string& contentType, const std::string& body) {
         std::ostringstream response;
         response << "HTTP/1.1 " << status << " ";
@@ -112,7 +148,7 @@ private:
     }
 
 public:
-    WebServer(int port = 8080) : port(port) {}
+    WebServer(int port = 8080) : port(port), installer("MyApp", "1.0.0") {}
     
     void start() {
         std::cout << "🌐 Starting Shuriken Lite Web Server..." << std::endl;
@@ -229,6 +265,27 @@ private:
                     } else {
                         response = createHttpResponse(400, "application/json", 
                                                    R"({"success": false, "error": "Missing projectPath parameter"})");
+                    }
+                } else {
+                    response = createHttpResponse(400, "application/json", 
+                                               R"({"success": false, "error": "Invalid request body"})");
+                }
+            } else {
+                response = createHttpResponse(405, "text/plain", "Method not allowed");
+            }
+        } else if (path.substr(0, 14) == "/api/installer") {
+            if (method == "POST") {
+                size_t bodyStart = request.find("\r\n\r\n");
+                if (bodyStart != std::string::npos) {
+                    std::string body = request.substr(bodyStart + 4);
+                    auto params = parseQueryString(body);
+                    
+                    if (params.count("executable") && params.count("type")) {
+                        std::string result = handleInstallerRequest(params["executable"], params["type"]);
+                        response = createHttpResponse(200, "application/json", result);
+                    } else {
+                        response = createHttpResponse(400, "application/json", 
+                                                   R"({"success": false, "error": "Missing parameters"})");
                     }
                 } else {
                     response = createHttpResponse(400, "application/json", 
