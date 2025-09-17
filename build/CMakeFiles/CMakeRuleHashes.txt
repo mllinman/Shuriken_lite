@@ -1,4 +1,0 @@
-# Hashes of file build rules.
-e849c9476c501036f7981aa33aac2983 .rcc/qrc_resources.cpp
-2bf38923b9be2b3ac19be9b3f36fc623 CMakeFiles/Shuriken_lite_autogen
-d86749ff143639b0beb280e6dda4f852 Shuriken_lite_autogen/timestamp

@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.16)
+project(Shuriken_lite VERSION 1.0 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Console version first
+add_executable(Shuriken_lite_console
+    main_console.cpp
+    src/Builder.cpp
+    src/Builder.h
+)
+
+# Try to create a simple working version
+target_link_libraries(Shuriken_lite_console)
+
+# Set output properties
+set_target_properties(Shuriken_lite_console PROPERTIES OUTPUT_NAME "shuriken_console")

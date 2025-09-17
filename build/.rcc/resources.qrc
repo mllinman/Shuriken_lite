@@ -1,7 +1,0 @@
-<RCC>
-  <qresource prefix="/">
-    <file alias="resources/darktheme.qss">/home/runner/work/Shuriken_lite/Shuriken_lite/resources/darktheme.qss</file>
-    <file alias="resources/shuriken_logo.png">/home/runner/work/Shuriken_lite/Shuriken_lite/resources/shuriken_logo.png</file>
-  </qresource>
-</RCC>
-
