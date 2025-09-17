@@ -8,13 +8,18 @@
 		"migrate": "node migrate.js",
 		"dev": "nodemon server.js"
 	},
-	"keywords": ["ecommerce", "cybersecurity", "stripe", "nodejs"],
+	"keywords": [
+		"ecommerce",
+		"cybersecurity",
+		"stripe",
+		"nodejs"
+	],
 	"dependencies": {
 		"body-parser": "^1.20.2",
 		"cors": "^2.8.5",
 		"express": "^4.18.2",
 		"jsonwebtoken": "^9.0.0",
-		"sqlite3": "^5.1.6",
+		"sqlite3": "^5.1.7",
 		"stripe": "^18.5.0"
 	}
 }
